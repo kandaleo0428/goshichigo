@@ -1,0 +1,10 @@
+<h1>投稿された句</h1>
+<% @posts.each do |post| %>
+<div class="main posts-index">
+<%=link_to(post.content_one,"/posts/#{post.id}") %>
+<%=link_to(post.content2,"/posts/#{post.id}") %>
+<%=link_to(post.content3,"/posts/#{post.id}") %>
+<%=link_to(post.message,"/posts/#{post.id}") %>
+<%= post.created_at %>
+</div>
+<% end %>

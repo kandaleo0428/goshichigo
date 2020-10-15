@@ -1,0 +1,11 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.top-main{
+    //writing-mode: vertical-rl; //縦書き文字の設定
+    padding: 200px 0 300px; //とりあえず左記のように仮設定
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("/DiamondFuji.jpg");
+}
