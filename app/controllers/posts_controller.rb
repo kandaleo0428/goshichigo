@@ -16,9 +16,12 @@ class PostsController < ApplicationController
     @post = Post.new(content2: params[:content2])
     @post = Post.new(content3: params[:content3])
     @post = Post.new(message: params[:message])
-    @post.save
-
+    
+    if @post.save
     redirect_to("/posts/index")
+    else
+    render("posts/new")
+    end
   end
 
   def edit
@@ -34,6 +37,7 @@ class PostsController < ApplicationController
     #render('posts/edit') #renderを用意したがデフォルトでrenderのような効果が出ているので一旦コメントにしておく
 
     if @post.save
+      flash[:notice] = "編集できました！"
       redirect_to('/posts/index') #保存できた場合
     else
       redirect_to("/posts/#{@post.id}/edit") #保存できなかった場合
