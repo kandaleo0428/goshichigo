@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   # users用ルート
+  post 'users/create' => 'users#create'
+
+  get 'signup' => 'users#new'
+
   get 'users/index' => 'users#index'
   get 'users/:id' => 'users#index'
-
 
   # posts用ルート
   get 'posts/index' => 'posts#index'

@@ -1,5 +1,5 @@
 <h1>詠み人一覧（ユーザー一覧）</h1>
 <% @users.each do |user| %>
-<% user.name %>
+<%= link_to(user.name, "/users/#{user.id}") %>
 <% end %>
 
