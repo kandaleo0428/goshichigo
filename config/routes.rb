@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  # users用ルート
+  get 'users/index' => 'users#index'
+  get 'users/:id' => 'users#index'
+
+
+  # posts用ルート
   get 'posts/index' => 'posts#index'
   get 'posts/new' => 'posts#new'
   post 'posts/create' => 'posts#create'
