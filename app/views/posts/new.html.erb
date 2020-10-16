@@ -2,6 +2,13 @@
 <h2>五七五の音で一句詠んでください!</h2>
 
 <%=form_tag("/posts/create") do%>
+
+  <% @post.errors.full_messages.each do |message| %> <%#エラーメッセージを出力する%>
+  <div class="form-error">
+    <%= message %>
+  </div>
+  <% end %>
+
 <p>初句（五音）</p>
 <textarea name="content1"></textarea>
 <p>二句（七音）</p>
