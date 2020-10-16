@@ -2,11 +2,12 @@
 
 <%=form_tag("/posts/#{@post.id}/update") do %>
 <p>初句（五音）</p>
-<textarea name="content_one"><%=@post.content_one%></textarea>
+<textarea name="content1"><%=@post.content1%></textarea>
 <p>二句（七音）</p>
 <textarea name="content2"><%=@post.content2%></textarea>
 <p>結句（五音）</p>
 <textarea name="content3"><%=@post.content3%></textarea>
 <p>メッセージ</p>
-<textarea><%=@post.message%></textarea>
+<textarea name="message"><%=@post.message%></textarea>
+<input type="submit" value="保存">
 <% end %>

@@ -12,12 +12,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(content_one: params[:content_one])
+    @post = Post.new(content1: params[:content1])
     @post = Post.new(content2: params[:content2])
     @post = Post.new(content3: params[:content3])
     @post = Post.new(message: params[:message])
-
     @post.save
+
     redirect_to("/posts/index")
   end
 
@@ -26,17 +26,23 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post_by(id: params[:id])
-    @post.content_one = params[:content_one]
+    @post = Post.find_by(id: params[:id])
+    @post.content1 = params[:content1]
     @post.content2 = params[:content2]
     @post.content3 = params[:content3]
     @post.message = params[:message]
-    @post.save
-    redirect_to("/posts/index")
+    #render('posts/edit') #renderを用意したがデフォルトでrenderのような効果が出ているので一旦コメントにしておく
+
+    if @post.save
+      redirect_to('/posts/index') #保存できた場合
+    else
+      redirect_to("/posts/#{@post.id}/edit") #保存できなかった場合
+    end
+
   end
 
   def destroy
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find_by(id: params[:id]) 
     @post.destroy
     redirect_to("/posts/index")
   end

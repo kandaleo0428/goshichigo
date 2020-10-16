@@ -10,16 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_14_122933) do
-
-  create_table "posts", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "content1"
-    t.string "content2"
-    t.string "content3"
-    t.string "message"
-    t.string "content_one"
+ActiveRecord::Schema.define(version: 2020_10_15_064227) do
+  create_table 'posts', force: :cascade do |t|
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.string 'content1'
+    t.string 'content2'
+    t.string 'content3'
+    t.string 'message'
   end
-
 end
