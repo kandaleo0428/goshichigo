@@ -19,3 +19,16 @@
 <textarea name="message"></textarea>
 <input type="submit" value="詠む">
 <% end %>
+
+<h1>まとめて送信テスト用</h1>
+<%= form_tag("/posts/create") do %>
+<p>初句</p>
+<input name="content1">
+<p>二句</p>
+<input name="content2">
+<p>結句</p>
+<input name="content3">
+<p>メッセージ</p>
+<textarea name="message"></textarea>
+<input type="submit" value="詠む">
+<% end %>
