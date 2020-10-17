@@ -18,6 +18,7 @@ class UsersController < ApplicationController
       flash[:notice] = "詠み人（ユーザー）登録が完了しました"
     redirect_to("/users/#{@user.id}")
     else
+      flash[:notice] = "既に登録されているメールアドレスです"
     render("users/new")
     end
   end

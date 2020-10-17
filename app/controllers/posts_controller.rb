@@ -14,9 +14,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(content1: params[:content1],content2: params[:content2],content3: params[:content3],message: params[:message])
-    #@post = Post.new(content2: params[:content2])
-    #@post = Post.new(content3: params[:content3])
-    #@post = Post.new(message: params[:message])
     
     if @post.save
     flash[:notice] ="一句、詠みました（投稿しました）"
@@ -42,6 +39,7 @@ class PostsController < ApplicationController
       flash[:notice] = "編集できました！"
       redirect_to('/posts/index') #保存できた場合
     else
+      flash[:notice] = "保存できませんでした（入力条件をご確認ください）"
       redirect_to("/posts/#{@post.id}/edit") #保存できなかった場合
     end
 
