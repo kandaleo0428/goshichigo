@@ -13,16 +13,35 @@
     <header>
       <%# このスペースにどのページでも表示したい共通のレイアウトを書く %>
       <h1>☆五七五歌会☆</h1>
-      <%=link_to("マイページ","") %>
-      <%=link_to("一句詠む（新規投稿）","/posts/new") %>
-      <%=link_to("投稿一覧","/posts/index") %>
-      <%=link_to("お気に入り詠み人","") %>
-      <%=link_to("詠み人一覧","/users/index") %>
-      <%=link_to("お気に入りの句","") %>
-      <%=link_to("あなたへのコメント","") %>
-      <%=link_to("連句","") %>
-      <%=link_to("使い方ガイド","/about") %>
-      <%=link_to("新規登録","/signup") %>
+        <div>
+          <% if @current_user %>
+            <%=link_to("五七五歌会","/posts/index") %>
+          <% else %>
+            <%=link_to("五七五歌会","/") %>
+          <% end %>
+        </div>
+      <%#ユーザーログイン時の表示項目 %>
+      <% if @current_user %>
+
+        <%=link_to(@current_user.name,"/users/#{@current_user.id}") %>
+        
+      　<%=link_to("マイページ","") %>
+      　<%=link_to("一句詠む（新規投稿）","/posts/new") %>
+      　<%=link_to("投稿一覧","/posts/index") %>
+      　<%=link_to("お気に入り詠み人","") %>
+      　<%=link_to("詠み人一覧","/users/index") %>
+      　<%=link_to("お気に入りの句","") %>
+      　<%=link_to("あなたへのコメント","") %>
+      　<%=link_to("連句","") %>
+      　<%=link_to("新規登録","/signup") %>
+      　<%=link_to("ログアウト","/logout",{method: :post}) %>
+
+　　　 <% else %>
+      <%#ユーザーログアウト時の表示項目 %>
+        <%=link_to("使い方ガイド","/about") %>
+        <%=link_to("ログイン","/login") %>
+      <% end %>  
+
     </header>
 
 　  <% if flash[:notice] %>
