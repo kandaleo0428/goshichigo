@@ -16,10 +16,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(name: params[:name], 
-                     email: params[:email], 
-                     image_name: "default_user.jpg",
-                     password: params[:password])
+    @user = User.new(
+      name: params[:name], 
+      email: params[:email], 
+      image_name: 'default_user.jpg',
+      password: params[:password])
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "詠み人（ユーザー）登録が完了しました"
@@ -40,11 +41,11 @@ class UsersController < ApplicationController
     @user.email = params[:email]
     #@user.image_name = "#{@user.id}.jpg"
 
-　　   #if params[:image]
-       #@user.image_name = "#{@user.id}.jpg"
-       #image = params[:image]
-       #File.binwrite("public/user_images/#{@user.image_name}",image.read)
-       #end  
+　　 if params[:image]
+      @user.image_name = "#{@user.id}.jpg"
+      image = params[:image]
+      File.binwrite("public/user_images/#{@user.image_name}",image.read)
+    end  
 
     if @user.save
       flash[:notice] = "詠み人（ユーザー）情報を編集しました"
@@ -81,6 +82,6 @@ class UsersController < ApplicationController
     if @current_user.id != params[:id].to_i
     flash[:notice] = "権限がありません"
     redirect_to("/posts/index")
+    end
   end
-
 end
