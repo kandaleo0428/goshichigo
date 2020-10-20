@@ -39,9 +39,8 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @user.name = params[:name]
     @user.email = params[:email]
-    #@user.image_name = "#{@user.id}.jpg"
 
-　　 if params[:image]
+    if params[:image]
       @user.image_name = "#{@user.id}.jpg"
       image = params[:image]
       File.binwrite("public/user_images/#{@user.image_name}",image.read)
@@ -65,7 +64,7 @@ class UsersController < ApplicationController
       flash[:notice] = "ログインしました"
       redirect_to("/posts/index")
     else
-      @error_message = "メールアドレスまたはパスワードが間違っています"
+      error_message = "メールアドレスまたはパスワードが間違っています"
       @email = params[:email]
       @password = params[:password]
       render("users/login_form")
@@ -80,8 +79,9 @@ class UsersController < ApplicationController
 
   def ensure_correct_user
     if @current_user.id != params[:id].to_i
-    flash[:notice] = "権限がありません"
-    redirect_to("/posts/index")
+      flash[:notice] = "権限がありません"
+      redirect_to("/posts/index")
     end
   end
+
 end

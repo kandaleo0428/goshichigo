@@ -23,7 +23,7 @@
       <%#ユーザーログイン時の表示項目 %>
       <% if @current_user %>
 
-        <%=link_to(@current_user.name,"/users/#{@current_user.id}") %>
+        <%=link_to("ユーザー名：#{@current_user.name}様","/users/#{@current_user.id}") %>
         
       　<%=link_to("マイページ","") %>
       　<%=link_to("一句詠む（新規投稿）","/posts/new") %>
@@ -33,12 +33,12 @@
       　<%=link_to("お気に入りの句","") %>
       　<%=link_to("あなたへのコメント","") %>
       　<%=link_to("連句","") %>
-      　<%=link_to("新規登録","/signup") %>
       　<%=link_to("ログアウト","/logout",{method: :post}) %>
 
 　　　 <% else %>
       <%#ユーザーログアウト時の表示項目 %>
         <%=link_to("使い方ガイド","/about") %>
+        <%=link_to("新規登録","/signup") %>
         <%=link_to("ログイン","/login") %>
       <% end %>  
 
