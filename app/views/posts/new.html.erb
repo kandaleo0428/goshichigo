@@ -3,11 +3,11 @@
 
 <%= form_tag("/posts/create") do %>
 
-  <% @post.errors.full_messages.each do |message| %> <%#エラーメッセージを出力する%>
+  <!--<% @post.errors.full_messages.each do |message| %> 
   <div class="form-error">
     <%= message %>
   </div>
-  <% end %>
+  <% end %> -->
 
 <p>初句（五音）</p>
 <input name="content1">
@@ -19,3 +19,5 @@
 <textarea name="message"></textarea>
 <input type="submit" value="詠む">
 <% end %>
+
+  
