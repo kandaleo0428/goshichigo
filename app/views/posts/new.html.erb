@@ -3,11 +3,11 @@
 
 <%= form_tag("/posts/create") do %>
 
-  <!--<% @post.errors.full_messages.each do |message| %> 
-  <div class="form-error">
-    <%= message %>
-  </div>
-  <% end %> -->
+  <% @post.errors.full_messages.each do |message| %>
+    <div class="form-error">
+      <%= message %>
+    </div>
+  <% end %> 
 
 <p>初句（五音）</p>
 <input name="content1">
