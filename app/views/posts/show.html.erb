@@ -1,4 +1,7 @@
 <p>投稿詳細画面</p>
+<img src="<%= "/user_images/#{@user.image_name}" %>">
+<%= link_to(@user.name,"/users/#{@user.id}") %>
+
 <%= @post.content1 %>
 <%= @post.content2 %>
 <%= @post.content3 %>

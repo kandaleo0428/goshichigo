@@ -7,18 +7,21 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @user = @post.user
   end
 
   def new
     @post = Post.new
-    #if @current_user == nil
-       #flash[:notice] = "ログインが必要です"
-       #redirect_to("/login")
-    #end
   end
 
   def create
-    @post = Post.new(content1: params[:content1],content2: params[:content2],content3: params[:content3],message: params[:message])
+    @post = Post.new(
+      content1: params[:content1],
+      content2: params[:content2],
+      content3: params[:content3],
+      message: params[:message],
+      user_id: @current_user.id
+      )
     
     if @post.save
     flash[:notice] ="一句、詠みました（投稿しました）"
@@ -45,15 +48,16 @@ class PostsController < ApplicationController
       redirect_to('/posts/index') #保存できた場合
     else
       flash[:notice] = "保存できませんでした（入力条件をご確認ください）"
-      redirect_to("/posts/#{@post.id}/edit") #保存できなかった場合
+      render("/posts/edit")
+      #redirect_to("/posts/#{@post.id}/edit") #保存できなかった場合
     end
 
   end
 
   def destroy
     @post = Post.find_by(id: params[:id]) 
-    flash[:notice] = "一句、削除しました（投稿を削除しました）"
     @post.destroy
+    flash[:notice] = "一句、削除しました（投稿を削除しました）"
     redirect_to("/posts/index")
   end
 
