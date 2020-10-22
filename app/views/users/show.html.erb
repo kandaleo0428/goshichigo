@@ -4,8 +4,11 @@
 <p><%=@user.email %></p>
 
 <% if @user.id == @current_user.id %>
-<%=link_to("編集","/users/#{@user.id}/edit") %>
+<li><%=link_to("ユーザー情報の編集","/users/#{@user.id}/edit") %></li>
 <% end %>
+
+  <li><%=link_to("投稿","/users/#{@user.id}")%></li>
+  <li><%=link_to("好いですね","/users/#{@user.id}/likes")%></li>
 
   <div>
     <% @user.posts.each do |post| %>

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  # likes用ルート
+  post 'likes/:post_id/create' => 'likes#create'
+  post 'likes/:post_id/destroy' => 'likes#destroy'
+
   # users用ルート
   get 'login' => 'users#login_form'
   post 'login' => 'users#login'
@@ -13,6 +18,8 @@ Rails.application.routes.draw do
 
   get 'users/index' => 'users#index'
   get 'users/:id' => 'users#show'
+
+  get 'users/:id/likes' => 'users#likes'
 
   # posts用ルート
   get 'posts/index' => 'posts#index'

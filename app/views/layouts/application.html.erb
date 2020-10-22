@@ -7,6 +7,9 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
   </head>
 
   <body>
@@ -23,9 +26,8 @@
       <%#ユーザーログイン時の表示項目 %>
       <% if @current_user %>
 
-        <%=link_to("ユーザー名：#{@current_user.name}様","/users/#{@current_user.id}") %>
+        <%=link_to("#{@current_user.name}様のマイページ","/users/#{@current_user.id}") %>
         
-      　<%=link_to("マイページ","") %>
       　<%=link_to("一句詠む（新規投稿）","/posts/new") %>
       　<%=link_to("投稿一覧","/posts/index") %>
       　<%=link_to("お気に入り詠み人","") %>

@@ -8,6 +8,27 @@
 <%= @post.message %>
 <%= @post.created_at %>
 
+<div class="posts-show-item">
+<% if Like.find_by(user_id:@current_user.id, post_id:@post.id)%>
+  <!--「好いですね」を押している -->
+
+  <%=link_to("/likes/#{@post.id}/destroy",{method: "post"}) do %>
+  <span class="fas fa-dove faa-bounce animated like-btn-unlike"></span>
+  <% end %>
+
+<% else %>
+
+　<!--「好いですね」を押していない -->
+  <%=link_to("/likes/#{@post.id}/create",{method: "post"}) do %>
+  <span class="fas fa-dove like-btn"></span>
+
+  <% end %>
+
+<% end %>
+</div>
+
+<%=@likes_count %>
+
 <% if @post.user_id == @current_user.id %>
 <%=link_to("編集","/posts/#{@post.id}/edit") %>
 <%=link_to("削除","/posts/#{@post.id}/destroy", {method: "post"}) %>
