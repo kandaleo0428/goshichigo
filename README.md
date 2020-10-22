@@ -1,24 +1,25 @@
-# README
+【概要】
+「和製ツイッター」
+五七五で俳句や川柳を作り皆で共有するSNSです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+【URL】
 
-Things you may want to cover:
+【制作の背景】
 
-* Ruby version
+【主な利用シーン】
 
-* System dependencies
+【機能一覧】
 
-* Configuration
+【環境・使用技術】
+・フロントエンド
+・バックエンド
+・開発環境
+・本番環境
+・インフラ構成図
+・テスト
+・その他の使用技術
 
-* Database creation
+【ER図】
 
-* Database initialization
+【作者について】
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
