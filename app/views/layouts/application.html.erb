@@ -26,20 +26,28 @@
       <%#ユーザーログイン時の表示項目 %>
       <% if @current_user %>
 
-        <p class="fas fa-user faa-tada animated"></p>
+        <p class="far fa-user faa-tada animated"></p>
         <%=link_to("#{@current_user.name}様のマイページ","/users/#{@current_user.id}") %>
         
         <p class="fas fa-edit faa-tada animated"></p>
       　<%=link_to("一句詠む（新規投稿）","/posts/new") %>
 
+        <p class="far fa-star faa-tada animated"></p>
       　<%=link_to("投稿一覧","/posts/index") %>
-      　<%=link_to("お気に入り詠み人","") %>
 
         <p class="fas fa-user-friends faa-tada animated"></p>
+      　<%=link_to("お気に入り詠み人","") %>
+
+        <p class="fas fa-users faa-tada animated"></p>
       　<%=link_to("詠み人一覧","/users/index") %>
 
+        <p class="far fa-heart faa-tada animated"></p>
       　<%=link_to("お気に入りの句","") %>
+
+        <p class="far fa-comment-dots faa-tada animated"></p>
       　<%=link_to("あなたへのコメント","") %>
+
+        <p class="far fa-comments faa-tada animated"></p>
       　<%=link_to("連句","") %>
 
         <p class="fas fa-sign-out-alt faa-tada animated"></p>
