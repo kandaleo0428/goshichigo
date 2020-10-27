@@ -15,10 +15,10 @@
   <body>
     <header>
       <%# このスペースにどのページでも表示したい共通のレイアウトを書く %>
-      <h1>☆五七五歌会☆</h1>
+      <h1><p class="far fa-star faa-tada animated"></p>五七五歌会<p class="far fa-star faa-tada animated"></p></h1>
         <div>
           <% if @current_user %>
-            <%=link_to("五七五歌会","/posts/index") %>
+            <%=link_to("HOME","/posts/index") %>
           <% else %>
             <%=link_to("五七五歌会","/") %>
           <% end %>
