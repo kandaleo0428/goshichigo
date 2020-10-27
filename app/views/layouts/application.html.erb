@@ -35,14 +35,14 @@
         <p class="far fa-star faa-tada animated"></p>
       　<%=link_to("投稿一覧","/posts/index") %>
 
-        <p class="fas fa-user-friends faa-tada animated"></p>
-      　<%=link_to("お気に入り詠み人","") %>
-
         <p class="fas fa-users faa-tada animated"></p>
       　<%=link_to("詠み人一覧","/users/index") %>
 
+        <p class="fas fa-user-friends faa-tada animated"></p>
+      　<%=link_to("お気に入り詠み人","") %>
+
         <p class="far fa-heart faa-tada animated"></p>
-      　<%=link_to("お気に入りの句","") %>
+      　<%=link_to("お気に入りの句","/users/#{@current_user.id}/likes") %>
 
         <p class="far fa-comment-dots faa-tada animated"></p>
       　<%=link_to("あなたへのコメント","") %>
