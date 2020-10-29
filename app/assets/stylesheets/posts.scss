@@ -6,3 +6,13 @@
  color: #ff2581;
 }
 
+.vertical{
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    color: black;
+}
+
+.inputfield{
+    writing-mode: initial;
+    transform: rotate(90deg);
+}

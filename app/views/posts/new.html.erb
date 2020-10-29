@@ -1,5 +1,7 @@
-<h1>「一句詠む」（新規の句の登録画面）</h1>
-<h2>五七五の音で一句詠んでください!</h2>
+<div class="vertical">
+<h1>「一句詠む」</h1>
+<p>（新規の句の登録画面）</p>
+<h2>五七五の音で一句詠んでください</h2>
 
 <%= form_tag("/posts/create") do %>
 
@@ -10,14 +12,21 @@
   <% end %> 
 
 <p>初句（五音）</p>
+  <div class="inputfield">
 <input name="content1">
+  <div>
+
 <p>二句（七音）</p>
 <input name="content2">
+
 <p>結句（五音）</p>
 <input name="content3">
+
 <p>詠み人からのメッセージ（任意）</p>
 <textarea name="message"></textarea>
+
 <input type="submit" value="詠む">
 <% end %>
+</div>
 
   

@@ -26,3 +26,9 @@
 .form-error{
     color: #ff4d75;
 }
+
+.vertical{
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    color: white;
+}
