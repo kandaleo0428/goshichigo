@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  # comments用ルート
+  post 'comments/create' => 'comments#create'
 
   # likes用ルート
   post 'likes/:post_id/create' => 'likes#create'

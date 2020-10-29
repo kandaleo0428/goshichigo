@@ -33,3 +33,32 @@
 <%=link_to("編集","/posts/#{@post.id}/edit") %>
 <%=link_to("削除","/posts/#{@post.id}/destroy", {method: "post"}) %>
 <% end %>
+
+<!-- コメント機能 -->
+
+<!-- コメント入力　-->
+<%=form_tag("/comments/create") do %>
+<p>作品へコメントを投稿する</p>
+<textarea name="comment" maxlength="100"><%=@comment.comment%></textarea>
+<input type="submit" value="保存">
+<% end %>
+
+<!-- コメント出力 -->
+<p>作品へ投稿されたコメント一覧</p>
+<% @comments.each do |comment| %>
+<div>
+  
+  <!-- コメント投稿したユーザーのアイコンと名前を出力したい
+  <div>
+    <img src="<%= "/user_images/#{post.user.image_name}" %>">
+  </div>
+  <div>
+    <%=link_to(post.user.name, "/users/#{post.user.id}") %>
+  </div>
+  -->
+
+<%=link_to(comment.comment,"/posts/#{post.id}") %>
+<%= comment.created_at %>
+</div>
+<% end %>
+
