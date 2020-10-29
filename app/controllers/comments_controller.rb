@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+
   def create
     @comment = Comment.new(comment:params[:comment],user_id:@current_user.id)
       if @comment.save
@@ -9,4 +10,5 @@ class CommentsController < ApplicationController
         render("/posts/show")
       end
   end
+  
 end
