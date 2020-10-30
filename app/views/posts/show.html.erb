@@ -41,8 +41,8 @@
 <% if @post.user_id != @current_user.id %>
 
 <%=form_tag("/comments/create") do %>
-<p>作品へコメントを投稿する</p>
-<textarea name="comment" maxlength="100"></textarea>  
+<p>この作品へコメントを投稿する</p>
+<textarea name="comment" maxlength="100" ></textarea>  
 <input type="submit" value="投稿">
 <% end %>
 
@@ -52,6 +52,7 @@
 <div>
 <%= comment.comment %>
 <%= comment.created_at %>
+<%= link_to("削除","/comments/#{comment.id}/destroy", {method: "post"}) %>
 </div>
 <% end %>
 <% end %>

@@ -10,5 +10,12 @@ class CommentsController < ApplicationController
         render("/posts/show")
       end
   end
+
+  def destroy
+    @comment = Comment.find_by(id: params[:id])
+    flash[:notice] = "コメントを削除しました"
+    @comment.destroy
+    redirect_to("/posts/show")
+  end
   
 end
