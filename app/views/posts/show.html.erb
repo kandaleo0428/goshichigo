@@ -41,17 +41,13 @@
 <% if @post.user_id != @current_user.id %>
 
   <%=form_tag("/comments/create") do %>
+  <%= hidden_field_tag :post_id, @post.id %>
   <p>この作品へコメントを投稿する</p>
   <textarea name="comment" maxlength="100" ></textarea>  
   <input type="submit" value="投稿">
   <% end %>
 
 <!-- コメント出力 -->
-  <%= @current_user.name %>
-  <%= @current_user.email %>
-  <%= @current_user.created_at %>
-  <%= @current_user.updated_at %>
-  <%= @current_user.image_name %>
 
   <p>作品へ投稿されたコメント一覧</p>
   <% @comments.each do |comment| %>

@@ -10,12 +10,12 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @comment = Comment.find_by(id: params[:id])
 
-    if @post != nil
-       @user = @post.user 
-       @likes_count = Like.where(post_id:@post.id).count
-    elsif @comment != nil
-       @user = @comment.user
-    end
+    @user = if @post.present?
+               @likes_count = Like.where(post_id:@post.id).count
+               @post.user
+            else @comment.present?
+               @comment.user
+            end
 
     @comments = Comment.all.order(created_at: :desc)
     
