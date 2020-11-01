@@ -8,9 +8,17 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
-    @user = @post.user
-    @likes_count = Like.where(post_id:@post.id).count
+    @comment = Comment.find_by(id: params[:id])
+
+    if @post != nil
+       @user = @post.user 
+       @likes_count = Like.where(post_id:@post.id).count
+    elsif @comment != nil
+       @user = @comment.user
+    end
+
     @comments = Comment.all.order(created_at: :desc)
+    
   end
 
   def new
