@@ -1,13 +1,13 @@
 class CommentsController < ApplicationController
 
   def create
-    @comment = Comment.new(comment:params[:comment], user_id:@current_user.id, post_id:params[:post_id])
+    @comment = Comment.new(comment:params[:comment], user_id:@current_user.id)
       if @comment.save
         flash[:notice] = "コメントしました"
-        redirect_to("/posts/:id")
+        redirect_to("/posts/#{params[:post_id]}")
       else
         flash[:notice] = "コメントできませんでした"
-        render("/posts/show")
+        render("/posts/#{params[:post_id]}")
       end
   end
 
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by(id: params[:id])
     flash[:notice] = "コメントを削除しました"
     @comment.destroy
-    redirect_to("/posts/show")
+    redirect_to("/posts/#{params[:post_id]}")
   end
   
 end
