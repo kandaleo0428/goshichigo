@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @works_count = Post.where(user_id: @user.id).count
   end
 
   def new
