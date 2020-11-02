@@ -2,7 +2,7 @@
 <img src="<%="/user_images/#{@user.image_name}"%>">
 <h2><%=@user.name %></h2>
 <p><%=@user.email %></p>
-<p>投稿句数：<%= @works_count %>句</p>
+<p>投稿した句の数：<%= @works_count %>句</p>
 
 
 <% if @user.id == @current_user.id %>
