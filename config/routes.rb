@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  # follow用ルート
+  post 'follows/:user_id/create' => 'follows#create'
+  post 'follows/:user_id/destroy' => 'follows#destroy'
+
   # likes用ルート
   post 'likes/:post_id/create' => 'likes#create'
   post 'likes/:post_id/destroy' => 'likes#destroy'

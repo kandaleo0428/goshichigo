@@ -20,3 +20,9 @@
       <%= link_to(post.message, "/posts/#{post.id}")%>　<!-- メッセージ　-->
     <% end %> 
   </div>
+
+  <% if Follow.find_by(following_user_id: @current_user.id, followed_user_id: @user.id) %>
+    <%=link_to("いいね！済み","/follows/#{@user.id}/destroy", {method: "post"}) %>　　
+  <% else %>
+    <%=link_to("いいね！","/follows/#{@user.id}/create", {method: "post"}) %>
+  <% end %>
