@@ -15,12 +15,14 @@
   <% end %>
   <% end %>
 
+　
 <!-- 登録したメールアドレスは本人にしか表示されない -->
 <% if @user.id == @current_user.id %>
   <p><%=@user.email %></p>
 <% end %>
 
 <% if @user.id == @current_user.id %>
+<li>現在のファン数：<%=@follower_count %>人</li>
 <li><%=link_to("ユーザー情報の編集","/users/#{@user.id}/edit") %></li>
 <% end %>
 

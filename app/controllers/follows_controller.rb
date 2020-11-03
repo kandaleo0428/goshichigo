@@ -16,5 +16,7 @@ class FollowsController < ApplicationController
         @follow.destroy
         redirect_to("/users/#{params[:user_id]}")
     end
+
+    
     
 end
