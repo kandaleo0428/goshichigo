@@ -57,7 +57,8 @@
   <%= @current_user.name %>
   <%= comment.created_at %>
   <% if session[:user_id] == comment.user_id %>
-  <%= link_to("削除","/comments/#{comment.id}/destroy", {method: "post"}) %>
+  <!-- <%= link_to("削除","/comments/#{comment.id}/destroy", {method: "post"}) %> -->
+  <%= link_to "削除", destroy_path, post_id: @post.id %>
   <% end %>
   </div>
 <% end %>
