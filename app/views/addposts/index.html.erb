@@ -18,5 +18,10 @@
 
   <!-- 作成日時 -->
   <%= addpost.created_at %>
+
+  <!-- 削除機能 -->
+    <% if addpost.add_user == @current_user.name%>
+    <%=link_to("削除する","/addposts/#{addpost.id}/destroy", {method: "post"}) %>
+    <% end %>
   </div>
 <% end %>

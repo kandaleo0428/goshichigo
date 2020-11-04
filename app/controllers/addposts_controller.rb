@@ -24,4 +24,11 @@ class AddpostsController < ApplicationController
         @addposts = Addpost.all.order(created_at: :desc)
     end
 
+    def destroy
+        @addpost = Addpost.find_by(id: params[:id]) 
+        @addpost.destroy
+        flash[:notice] = "連句を削除しました"
+        redirect_to("/addposts/index")
+    end
+
 end
