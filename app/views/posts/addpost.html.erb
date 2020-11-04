@@ -16,5 +16,11 @@
 
 <p>追句した詠み人からのメッセージ（任意）</p>
 <textarea name="addmessage"></textarea>
+
+    <%= hidden_field_tag :content1, @content1 %>
+    <%= hidden_field_tag :content2, @content2 %>
+    <%= hidden_field_tag :content3, @content3 %>
+    <%= hidden_field_tag :user_name, @user %>
+
 <input type="submit" value="詠む">
 <% end %>

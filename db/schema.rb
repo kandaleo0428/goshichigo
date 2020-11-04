@@ -10,15 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_04_020140) do
+ActiveRecord::Schema.define(version: 2020_11_04_064945) do
 
   create_table "addposts", force: :cascade do |t|
     t.string "content4"
     t.string "content5"
     t.string "addmessage"
-    t.integer "add_user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "content1"
+    t.string "content2"
+    t.string "content3"
+    t.string "original_user"
+    t.string "add_user"
   end
 
   create_table "comments", force: :cascade do |t|

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  # addposts用ルート
+  post 'addposts/create' => 'addposts#create'
+  get 'addposts/index' => 'addposts#index'
 
   # follows用ルート
   post 'follows/:user_id/create' => 'follows#create'
