@@ -33,3 +33,10 @@
 <%=link_to("編集","/posts/#{@post.id}/edit") %>
 <%=link_to("削除","/posts/#{@post.id}/destroy", {method: "post"}) %>
 <% end %>
+  <%= form_tag("/posts/addpost") do %>
+  　<%= hidden_field_tag :content1, @post.content1 %>
+    <%= hidden_field_tag :content2, @post.content2 %>
+    <%= hidden_field_tag :content3, @post.content3 %>
+    <%= hidden_field_tag :user_name, @user.name %>
+    <input type="submit" value="連句する">
+  <% end %>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  # follow用ルート
+
+  # follows用ルート
   post 'follows/:user_id/create' => 'follows#create'
   post 'follows/:user_id/destroy' => 'follows#destroy'
 
@@ -35,6 +36,7 @@ Rails.application.routes.draw do
   post 'posts/:id/destroy' => 'posts#destroy'
 
   get 'posts/:id' => 'posts#show'
+  post 'posts/addpost' => 'posts#addpost'
 
   get '/' => 'home#top'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

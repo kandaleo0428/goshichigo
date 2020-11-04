@@ -71,4 +71,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def addpost 
+    @content1 = params[:content1]
+    @content2 = params[:content2]
+    @content3 = params[:content3]
+    @user = params[:user_name]
+  end
+
 end
