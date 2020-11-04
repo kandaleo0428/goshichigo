@@ -90,4 +90,9 @@ class UsersController < ApplicationController
     @likes = Like.where(user_id: @user.id)
   end
 
+  def follows
+    @user = User.find_by(id: params[:id])
+    @follows = Follow.where(following_user_id: @user.id)
+  end
+
 end

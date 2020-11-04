@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show'
 
   get 'users/:id/likes' => 'users#likes'
+  get 'users/:id/follows' => 'users#follows'
 
   # posts用ルート
   get 'posts/index' => 'posts#index'

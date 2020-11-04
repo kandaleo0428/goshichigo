@@ -1,6 +1,6 @@
 <h1>詠み人詳細</h1>
 <img src="<%="/user_images/#{@user.image_name}"%>">
-<h2><%=@user.name %></h2>
+<h2>詠み人名：<%=@user.name %></h2>
 
 <!-- 自分以外のユーザーをお気に入りにできる機能（自分のユーザーページには表示されない）　-->
 　<% if @user.id != @current_user.id %>
@@ -18,7 +18,7 @@
 　
 <!-- 登録したメールアドレスは本人にしか表示されない -->
 <% if @user.id == @current_user.id %>
-  <p><%=@user.email %></p>
+  <p>あなたの登録メールアドレス：<%=@user.email %></p>
 <% end %>
 
 <% if @user.id == @current_user.id %>

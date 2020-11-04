@@ -1,0 +1,11 @@
+<h1><%= @current_user.name %>さんの気に入り詠み人一覧</h1>
+
+  <% @follows.each do |follow| %>
+   <% user = User.find_by(id: follow.followed_user_id) %>
+   <!-- お気に入り詠み人にしたユーザーの画像出力-->
+   <div>
+　　<img src="<%= "/user_images/#{user.image_name}" %>" >
+   </div>
+   <!-- お気に入り詠み人にしたユーザーの名前出力 -->
+   <p><%= link_to(user.name, "/users/#{user.id}") %>さん</P>
+  <% end %>
