@@ -1,0 +1,27 @@
+<h1>連句をしましょう</h1>
+<h3><%= @user %>さんの句に下の句を書き足してみましょう</h3>
+
+<%= form_tag("/addposts/create") do %>
+
+<p>初句（五音）</p>
+<%= @content1 %>
+<p>二句（七音）</p>
+<%= @content2 %>
+<p>三句（五音）</p>
+<%= @content3 %>
+<p>四句（七音）</p>
+<input name="content4">
+<p>結句（七音）</p>
+<input name="content5">
+
+<p>追句した詠み人からのメッセージ（任意）</p>
+<textarea name="addmessage"></textarea>
+
+    <%= hidden_field_tag :content1, @content1 %>
+    <%= hidden_field_tag :content2, @content2 %>
+    <%= hidden_field_tag :content3, @content3 %>
+    <%= hidden_field_tag :user_name, @user_name %>
+    <%= hidden_field_tag :user_id, @user_id %>
+
+<input type="submit" value="詠む">
+<% end %>

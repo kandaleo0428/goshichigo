@@ -5,7 +5,27 @@
 <p>投稿した句の数：<%= @works_count %>句</p>
 
 
+<!-- 自分以外のユーザーをお気に入りにできる機能（自分のユーザーページには表示されない）　-->
+　<% if @user.id != @current_user.id %>
+    <% if Follow.find_by(following_user_id: @current_user.id, followed_user_id: @user.id) %>
+    <!-- いいね！を押している -->
+      <p class="far fa-thumbs-up faa-tada animated"></p>
+      <%=link_to("#{@user.name}さんをお気に入り詠み人に追加しています","/follows/#{@user.id}/destroy", {method: "post"}) %>　　
+    <% else %>
+    <!-- いいね！を押していない -->
+      <p class="far fa-thumbs-up"></p>
+      <%=link_to("#{@user.name}さんをお気に入り詠み人に追加する","/follows/#{@user.id}/create", {method: "post"}) %>
+  <% end %>
+  <% end %>
+
+　
+<!-- 登録したメールアドレスは本人にしか表示されない -->
 <% if @user.id == @current_user.id %>
+  <p>あなたの登録メールアドレス：<%=@user.email %></p>
+<% end %>
+
+<% if @user.id == @current_user.id %>
+<li>現在のファン数：<%=@follower_count %>人</li>
 <li><%=link_to("ユーザー情報の編集","/users/#{@user.id}/edit") %></li>
 <% end %>
 

@@ -72,3 +72,11 @@
   <% end %>
 <% end %>
 <% end %>
+  <%= form_tag("/posts/addpost") do %>
+  　<%= hidden_field_tag :content1, @post.content1 %>
+    <%= hidden_field_tag :content2, @post.content2 %>
+    <%= hidden_field_tag :content3, @post.content3 %>
+    <%= hidden_field_tag :user_name, @user.name %>
+    <%= hidden_field_tag :user_id, @user.id %>
+    <input type="submit" value="連句する">
+  <% end %>
