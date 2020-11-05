@@ -8,8 +8,17 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
-    @user = @post.user
-    @likes_count = Like.where(post_id:@post.id).count
+    @comment = Comment.find_by(id: params[:id])
+
+    @user = if @post.present?
+               @likes_count = Like.where(post_id:@post.id).count
+               @post.user
+            else @comment.present?
+               @comment.user
+            end
+
+    @comments = Comment.all.order(created_at: :desc)
+    
   end
 
   def new
@@ -69,6 +78,14 @@ class PostsController < ApplicationController
     flash[:notice] = "権限がありません"
     redirect_to("/posts/index")
     end
+  end
+
+  def addpost 
+    @content1 = params[:content1]
+    @content2 = params[:content2]
+    @content3 = params[:content3]
+    @user_name = params[:user_name]
+    @user_id = params[:user_id]
   end
 
 end

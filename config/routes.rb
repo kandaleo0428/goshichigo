@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  
+  # comments用ルート
+  post 'comments/create' => 'comments#create'
+  post 'comments/:id/destroy' => 'comments#destroy'
+
+  # addposts用ルート
+  post 'addposts/create' => 'addposts#create'
+  get 'addposts/index' => 'addposts#index'
+  post 'addposts/:id/destroy' => 'addposts#destroy'
+
+  # follows用ルート
+  post 'follows/:user_id/create' => 'follows#create'
+  post 'follows/:user_id/destroy' => 'follows#destroy'
 
   # likes用ルート
   post 'likes/:post_id/create' => 'likes#create'
@@ -20,6 +33,7 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show'
 
   get 'users/:id/likes' => 'users#likes'
+  get 'users/:id/follows' => 'users#follows'
 
   # posts用ルート
   get 'posts/index' => 'posts#index'
@@ -30,6 +44,7 @@ Rails.application.routes.draw do
   post 'posts/:id/destroy' => 'posts#destroy'
 
   get 'posts/:id' => 'posts#show'
+  post 'posts/addpost' => 'posts#addpost'
 
   get '/' => 'home#top'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

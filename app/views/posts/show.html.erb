@@ -33,3 +33,50 @@
 <%=link_to("編集","/posts/#{@post.id}/edit") %>
 <%=link_to("削除","/posts/#{@post.id}/destroy", {method: "post"}) %>
 <% end %>
+
+<!-- コメント機能 -->
+
+<!-- コメント入力　-->
+<!-- 投稿者ではないユーザーだけが投稿可能 -->
+<% if @post.user_id != @current_user.id %>
+
+  <%=form_tag("/comments/create") do %>
+  
+  <p>この作品へコメントを投稿する</p>
+  <textarea name="comment" maxlength="100" ></textarea>  
+    <%= hidden_field_tag :post_id, @post.id %>
+    <%= hidden_field_tag :comment_user_name, @current_user.name %>
+  <input type="submit" value="投稿する">
+  <% end %>
+
+<!-- コメント出力 -->
+
+  <p>この作品へ投稿されたコメント</p>
+
+  <% @comments.each do |comment| %>
+  <!-- それぞれの句に対応したコメントを表示するための設定 -->
+  <% if comment.comment_post_id == @post.id%>
+  <div>
+  <% comment.comment_post_id %>
+  <%= comment.comment %>
+  <%= link_to("#{comment.comment_user_name}","/users/#{comment.user_id}") %>
+  <%= comment.created_at %>
+    <% if session[:user_id] == comment.user_id %>
+  　  <%= form_tag("/comments/#{comment.id}/destroy") do %>
+  　　  <%= hidden_field_tag :post_id, @post.id %>
+  　  <input type="submit" value="削除する">
+    <% end %>
+  
+  <% end %>
+  </div>
+  <% end %>
+<% end %>
+<% end %>
+  <%= form_tag("/posts/addpost") do %>
+  　<%= hidden_field_tag :content1, @post.content1 %>
+    <%= hidden_field_tag :content2, @post.content2 %>
+    <%= hidden_field_tag :content3, @post.content3 %>
+    <%= hidden_field_tag :user_name, @user.name %>
+    <%= hidden_field_tag :user_id, @user.id %>
+    <input type="submit" value="連句する">
+  <% end %>
