@@ -3,9 +3,12 @@
 <h2><%=@user.name %></h2>
 <p>投稿した句の数：<%= @works_count %>句</p>
 <p>現在のファン数：<%=@follower_count %>人</p>
+
 <!-- 登録したメールアドレスは本人にしか表示されない -->
 <% if @user.id == @current_user.id %>
-  <p>あなたの登録メールアドレス：<%=@user.email %></p>
+<p>登録メールアドレス：<%=@user.email %></p>
+<p><%=link_to("ユーザー情報の編集","/users/#{@user.id}/edit") %></p>
+<p><%=link_to("投稿","/users/#{@user.id}")%></p>
 <% end %>
 
 <!-- 自分以外のユーザーをお気に入りにできる機能（自分のユーザーページには表示されない）　-->
@@ -21,12 +24,6 @@
   <% end %>
   <% end %>
 
-
-<% if @user.id == @current_user.id %>
-<li><%=link_to("ユーザー情報の編集","/users/#{@user.id}/edit") %></li>
-<% end %>
-
-  <li><%=link_to("投稿","/users/#{@user.id}")%></li>
   <!-- <li><%=link_to("お気に入りの句","/users/#{@user.id}/likes")%></li> -->
 
   <div>
