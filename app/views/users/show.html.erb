@@ -2,6 +2,7 @@
 <img src="<%="/user_images/#{@user.image_name}"%>">
 <h2><%=@user.name %></h2>
 <p>投稿した句の数：<%= @works_count %>句</p>
+<p>現在のファン数：<%=@follower_count %>人</p>
 <!-- 登録したメールアドレスは本人にしか表示されない -->
 <% if @user.id == @current_user.id %>
   <p>あなたの登録メールアドレス：<%=@user.email %></p>
@@ -22,7 +23,6 @@
 
 
 <% if @user.id == @current_user.id %>
-<li>現在のファン数：<%=@follower_count %>人</li>
 <li><%=link_to("ユーザー情報の編集","/users/#{@user.id}/edit") %></li>
 <% end %>
 
