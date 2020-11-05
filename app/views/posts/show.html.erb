@@ -45,6 +45,7 @@
   <p>この作品へコメントを投稿する</p>
   <textarea name="comment" maxlength="100" ></textarea>  
     <%= hidden_field_tag :post_id, @post.id %>
+    <%= hidden_field_tag :comment_user_name, @current_user.name %>
   <input type="submit" value="投稿する">
   <% end %>
 
@@ -58,7 +59,7 @@
   <div>
   <% comment.comment_post_id %>
   <%= comment.comment %>
-  <%= @current_user.name %>
+  <%= link_to("#{comment.comment_user_name}","/users/#{comment.user_id}") %>
   <%= comment.created_at %>
     <% if session[:user_id] == comment.user_id %>
   　  <%= form_tag("/comments/#{comment.id}/destroy") do %>

@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
 
   def create
-    @comment = Comment.new(comment:params[:comment], user_id:@current_user.id, comment_post_id:params[:post_id])
+    @comment = Comment.new(comment:params[:comment], 
+                           user_id:@current_user.id, 
+                           comment_post_id:params[:post_id],comment_user_name:params[:comment_user_name])
       if @comment.save
         flash[:notice] = "コメントしました"
         redirect_to("/posts/#{params[:post_id]}")
