@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # comments用ルート
   post 'comments/create' => 'comments#create'
   post 'comments/:id/destroy' => 'comments#destroy'
+  get 'comments/index' => 'comments#index'
 
   # addposts用ルート
   post 'addposts/create' => 'addposts#create'

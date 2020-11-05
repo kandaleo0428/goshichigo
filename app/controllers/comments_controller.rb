@@ -20,5 +20,8 @@ class CommentsController < ApplicationController
     @comment.destroy
     redirect_to("/posts/#{params[:post_id]}")
   end
+
+  def index
+  end
   
 end
