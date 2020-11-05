@@ -7,8 +7,8 @@
   <%= addpost.content3 %>
   <%= addpost.content4 %>
   <%= addpost.content5 %>
-  <p>上の句作者：<%= addpost.original_user %>さん</p>
-  <p>下の句作者：<%= addpost.add_user %>さん</p>
+  <p>上の句作者：<%= link_to("#{addpost.original_user}","/users/#{addpost.original_user_id}") %>さん</p>
+  <p>下の句作者：<%= link_to("#{addpost.add_user}","/users/#{@current_user.id}") %>さん</p>
 
   <!-- メッセージがあれば出力される -->
   <% if addpost.addmessage != nil %>

@@ -9,6 +9,7 @@ class AddpostsController < ApplicationController
             content5: params[:content5],
             addmessage: params[:addmessage],
             original_user: params[:user_name],
+            original_user_id: params[:user_id],
             add_user: @current_user.name
         )
         if @addpost.save
