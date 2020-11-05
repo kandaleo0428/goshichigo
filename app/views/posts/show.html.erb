@@ -45,7 +45,7 @@
   <p>この作品へコメントを投稿する</p>
   <textarea name="comment" maxlength="100" ></textarea>  
   <%= hidden_field_tag :post_id, @post.id %>
-  <input type="submit" value="投稿">
+  <input type="submit" value="投稿する">
   <% end %>
 
 <!-- コメント出力 -->
@@ -57,8 +57,10 @@
   <%= @current_user.name %>
   <%= comment.created_at %>
   <% if session[:user_id] == comment.user_id %>
-  <!-- <%= link_to("削除","/comments/#{comment.id}/destroy", {method: "post"}) %> -->
-  <%= link_to "削除", destroy_path, post_id: @post.id %>
+  　<%= form_tag("/comments/#{comment.id}/destroy") do %>
+  　　<%= hidden_field_tag :post_id, @post.id %>
+  　<input type="submit" value="削除する">
+<% end %>
   <% end %>
   </div>
 <% end %>
