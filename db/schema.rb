@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_044945) do
+ActiveRecord::Schema.define(version: 2020_11_06_024408) do
 
   create_table "addposts", force: :cascade do |t|
     t.string "content4"
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(version: 2020_11_05_044945) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "comment_post_id"
     t.string "comment_user_name"
+    t.string "original_content1"
+    t.string "original_content2"
+    t.string "original_content3"
+    t.integer "original_user_id"
   end
 
   create_table "follows", force: :cascade do |t|
