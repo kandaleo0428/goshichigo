@@ -1,0 +1,13 @@
+<h1><%= @current_user.name %>さんへのコメント一覧</h1>
+　
+  <!-- ユーザーに対応したコメントを表示するための設定 -->
+  <% @comments.each do |comment| %>
+    <% if %>
+      <div>
+      句：
+      メッセージ：<%= comment.comment %>
+      送り主：<%= link_to("#{comment.comment_user_name}","/users/#{comment.user_id}") %>
+      <%= comment.created_at %>
+　    </div>
+    <% end %>
+  <% end %>

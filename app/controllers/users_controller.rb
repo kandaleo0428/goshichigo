@@ -96,4 +96,11 @@ class UsersController < ApplicationController
     @follows = Follow.where(following_user_id: @user.id)
   end
 
+  def comments
+    @post = Post.find_by(id: params[:id])
+    @user = @current_user
+    @comment = Comment.find_by(id: params[:id])
+    @comments = Comment.all.order(created_at: :desc)
+  end
+
 end

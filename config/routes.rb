@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   # comments用ルート
   post 'comments/create' => 'comments#create'
   post 'comments/:id/destroy' => 'comments#destroy'
-  get 'comments/index' => 'comments#index'
 
   # addposts用ルート
   post 'addposts/create' => 'addposts#create'
@@ -35,6 +34,7 @@ Rails.application.routes.draw do
 
   get 'users/:id/likes' => 'users#likes'
   get 'users/:id/follows' => 'users#follows'
+  get 'users/:id/comments' => 'users#comments'
 
   # posts用ルート
   get 'posts/index' => 'posts#index'

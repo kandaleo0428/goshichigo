@@ -1,22 +1,19 @@
 <h1><%= @user.name %>さんのお気に入りの句</h1>
 <img src="<%="/user_images/#{@user.image_name}"%>">
-  <!-- <h2><%= @user.name %></h2> -->
-  <!-- <p><%= @user.email %></p> -->
+
 <% if @user.id == @current_user %>
   <%= link_to("編集","/users/#{@user.id}/edit") %>
 <% end %>
 
-<!-- <li><%=link_to("投稿","/users/#{@user.id}") %></li> -->
-<!-- <li><%=link_to("好いですね","/users/#{@user.id}/likes") %></li> -->
-
-<% @likes.each do |like| %>
-  <% post = Post.find_by(id: like.post_id)%>
-  <img src="<%="/user_images/#{post.user.image_name}" %>">
-  <%=link_to(post.user.name, "/users/#{post.user.id}") %>
-  <%= post.content1 %>
-  <%= post.content2 %>
-  <%= post.content3 %>
-  <%= link_to("句の詳細","/posts/#{post.id}") %>
-
-<% end %>
+　<div>
+    <% @likes.each do |like| %>
+      <% post = Post.find_by(id: like.post_id)%>
+        <img src="<%="/user_images/#{post.user.image_name}" %>">
+      <%=link_to(post.user.name, "/users/#{post.user.id}") %>
+        <%= post.content1 %>
+        <%= post.content2 %>
+        <%= post.content3 %>
+      <%= link_to("句の詳細","/posts/#{post.id}") %>
+    <% end %>
+  </div>
 
