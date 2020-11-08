@@ -69,6 +69,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id]) 
     @post.destroy
     @comments = Comment.where(comment_post_id: @post.id).destroy_all
+    @likes = Like.where(post_id: @post.id).destroy_all
     flash[:notice] = "一句、削除しました（投稿を削除しました）"
     redirect_to("/posts/index")
   end
