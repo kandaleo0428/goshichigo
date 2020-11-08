@@ -13,31 +13,35 @@
 
 <!-- 自分以外のユーザーをお気に入りにできる機能（自分のユーザーページには表示されない）　-->
 　<% if @user.id != @current_user.id %>
-    <% if Follow.find_by(following_user_id: @current_user.id, followed_user_id: @user.id) %>
-    <!-- いいね！を押している -->
-      <p class="far fa-thumbs-up faa-tada animated"></p>
-      <%=link_to("#{@user.name}さんをお気に入り詠み人に追加しています","/follows/#{@user.id}/destroy", {method: "post"}) %>　　
-    <% else %>
-    <!-- いいね！を押していない -->
-      <p class="far fa-thumbs-up"></p>
-      <%=link_to("#{@user.name}さんをお気に入り詠み人に追加する","/follows/#{@user.id}/create", {method: "post"}) %>
-  <% end %>
-  <% end %>
+<% if Follow.find_by(following_user_id: @current_user.id, followed_user_id: @user.id) %>
+<!-- いいね！を押している -->
+<p class="far fa-thumbs-up faa-tada animated"></p>
+<%=link_to("#{@user.name}さんをお気に入り詠み人に追加しています","/follows/#{@user.id}/destroy", {method: "post"}) %>　　
+<% else %>
+<!-- いいね！を押していない -->
+<p class="far fa-thumbs-up"></p>
+<%=link_to("#{@user.name}さんをお気に入り詠み人に追加する","/follows/#{@user.id}/create", {method: "post"}) %>
+<% end %>
+<% end %>
 
-  <!-- <li><%=link_to("お気に入りの句","/users/#{@user.id}/likes")%></li> -->
+<!-- <li><%=link_to("お気に入りの句","/users/#{@user.id}/likes")%></li> -->
 
-  <div>
+<div>
     <% @user.posts.each do |post| %>
-      <img src="<%= "/user_images/#{post.user.image_name}" %>">　<!-- 本人写真　-->
-      <%= link_to(post.user.name, "/users/#{post.user.id}") %> <!-- ユーザー名前　-->
-      <%= post.content1 %> <!-- 初句　-->
-      <%= post.content2 %>　<!-- 二句　-->
-      <%= post.content3 %>　<!--　結句　-->
-      <p>詠み人からのメッセージ：<%= post.message %></p>　<!-- メッセージ　-->
-      <p><%=link_to("句の詳細","/posts/#{post.id}") %></p>  <!-- 句の詳細 -->
-    <% end %> 
-  </div>
+    <img src="<%= "/user_images/#{post.user.image_name}" %>">　
+    <!-- 本人写真　-->
+    <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+    <!-- ユーザー名前　-->
+    <%= post.content1 %>
+    <!-- 初句　-->
+    <%= post.content2 %>　
+    <!-- 二句　-->
+    <%= post.content3 %>　
+    <!--　結句　-->
+    <p>詠み人からのメッセージ：<%= post.message %></p>　
+    <!-- メッセージ　-->
+    <p><%=link_to("句の詳細","/posts/#{post.id}") %></p> <!-- 句の詳細 -->
+    <% end %>
+</div>
 
-  　
-
-
+　
