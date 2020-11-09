@@ -15,6 +15,7 @@
   <body>
     <header>
       <%# このスペースにどのページでも表示したい共通のレイアウトを書く %>
+      <div class="top">
       <h1><p class="far fa-star faa-tada animated"></p>GO-SHICHI-GO<p class="far fa-star faa-tada animated"></p></h1>
         <div>
           <% if @current_user %>
@@ -23,6 +24,7 @@
             <%=link_to("GO-SHICHI-GO : TOP画面","/") %>
           <% end %>
         </div>
+      </div>
       <%#ユーザーログイン時の表示項目 %>
       <div class="vertical">
       <% if @current_user %>

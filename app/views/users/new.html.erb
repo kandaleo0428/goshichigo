@@ -7,7 +7,7 @@
 <% end %>
 
 <%= form_tag("/users/create") do %>
-<p>詠み人名（ユーザー名）</p>
+<p><ruby>詠<rt>よ</rt>み<rt></rt>人<rt>びと</rt>名<rt>めい</rt>（ユーザー名）</ruby></p>
 <input name="name" placeholder="名前を決めてください" value="<%=@user.name %>">
 <p>メールアドレス</p>
 <input name="email" placeholder="メールアドレスを記入する" value="<%=@user.email %>">
