@@ -15,49 +15,53 @@
   <body>
     <header>
       <%# このスペースにどのページでも表示したい共通のレイアウトを書く %>
-      <h1><p class="far fa-star faa-tada animated"></p>五七五歌会<p class="far fa-star faa-tada animated"></p></h1>
+      <h1><p class="far fa-star faa-tada animated"></p>GO-SHICHI-GO<p class="far fa-star faa-tada animated"></p></h1>
         <div>
           <% if @current_user %>
-            <%=link_to("HOME","/posts/index") %>
+            <%=link_to("HOME","/posts/index") %><br>
           <% else %>
-            <%=link_to("五七五歌会","/") %>
+            <%=link_to("GO-SHICHI-GO : TOP画面","/") %>
           <% end %>
         </div>
       <%#ユーザーログイン時の表示項目 %>
+      <div class="vertical">
       <% if @current_user %>
 
         <p class="far fa-user faa-tada animated"></p>
-        <%=link_to("#{@current_user.name}様のマイページ","/users/#{@current_user.id}") %>
+        <%=link_to("#{@current_user.name}様のマイページ","/users/#{@current_user.id}") %><br>
         
         <p class="fas fa-edit faa-tada animated"></p>
-      　<%=link_to("一句詠む（新規投稿）","/posts/new") %>
+      　<%=link_to("一句詠む（新規投稿）","/posts/new") %><br>
 
         <p class="far fa-star faa-tada animated"></p>
-      　<%=link_to("投稿一覧","/posts/index") %>
+      　<%=link_to("投稿一覧","/posts/index") %><br>
 
         <p class="fas fa-users faa-tada animated"></p>
-      　<%=link_to("詠み人一覧","/users/index") %>
+      　<%=link_to("詠み人一覧","/users/index") %><br>
 
         <p class="fas fa-user-friends faa-tada animated"></p>
-      　<%=link_to("お気に入り詠み人","/users/#{@current_user.id}/follows") %>
+      　<%=link_to("お気に入り詠み人","/users/#{@current_user.id}/follows") %><br>
 
         <p class="far fa-heart faa-tada animated"></p>
-      　<%=link_to("お気に入りの句","/users/#{@current_user.id}/likes") %>
+      　<%=link_to("お気に入りの句","/users/#{@current_user.id}/likes") %><br>
 
         <p class="far fa-comment-dots faa-tada animated"></p>
-      　<%=link_to("あなたへのコメント","/users/#{@current_user.id}/comments") %>
+      　<%=link_to("あなたへのコメント","/users/#{@current_user.id}/comments") %><br>
 
         <p class="far fa-comments faa-tada animated"></p>
-      　<%=link_to("連句","/addposts/index") %>
+      　<%=link_to("連句","/addposts/index") %><br>
 
         <p class="fas fa-sign-out-alt faa-tada animated"></p>
       　<%=link_to("ログアウト","/logout",{method: :post}) %>
 
 　　　 <% else %>
+      </div>
       <%#ユーザーログアウト時の表示項目 %>
-        <%=link_to("使い方ガイド","/about") %>
-        <%=link_to("新規登録","/signup") %>
-        <%=link_to("ログイン","/login") %>
+      <div class="vertical">
+        <%=link_to("使い方ガイド","/about") %><br>
+        <%=link_to("新規登録","/signup") %><br>
+        <%=link_to("ログイン","/login") %><br>
+      </div>
       <% end %>  
 
     </header>
