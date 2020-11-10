@@ -1,15 +1,16 @@
-<h1>詠み人詳細</h1>
-<img src="<%="/user_images/#{@user.image_name}"%>">
-<h2><%=@user.name %></h2>
-<p>投稿した句の数：<%= @works_count %>句</p>
-<p>現在のファン数：<%=@follower_count %>人</p>
+<div class="user_show_info">
+  <h1><ruby>詠<rt>よ</rt>み<rt></rt>人<rt>びと</rt>詳細<rt>しょうさい</rt></ruby></h1>
+  <img src="<%="/user_images/#{@user.image_name}"%>">
+  <h2><ruby>詠<rt>よ</rt>み<rt></rt>人<rt>びと</rt>名<rt>めい</rt>：<%=@user.name %></ruby></h2>
+  <p>投稿した句の数：<%= @works_count %>句</p>
+  <p>現在のファン数：<%=@follower_count %>人</p>
 
 <!-- 登録したメールアドレスは本人にしか表示されない -->
-<% if @user.id == @current_user.id %>
-<p>登録メールアドレス：<%=@user.email %></p>
-<p><%=link_to("ユーザー情報の編集","/users/#{@user.id}/edit") %></p>
-<p><%=link_to("投稿","/users/#{@user.id}")%></p>
-<% end %>
+  <% if @user.id == @current_user.id %>
+    <p>登録メールアドレス：<%=@user.email %></p>
+    <p><%=link_to("ユーザー情報の編集","/users/#{@user.id}/edit") %></p>
+  <% end %>
+</div>
 
 <!-- 自分以外のユーザーをお気に入りにできる機能（自分のユーザーページには表示されない）　-->
 　<% if @user.id != @current_user.id %>
@@ -25,12 +26,11 @@
 <% end %>
 
 <!-- <li><%=link_to("お気に入りの句","/users/#{@user.id}/likes")%></li> -->
-
-<div>
+<div class="user_works">
     <% @user.posts.each do |post| %>
-    <img src="<%= "/user_images/#{post.user.image_name}" %>">　
+    <img src="<%= "/user_images/#{post.user.image_name}" %>"><br>
     <!-- 本人写真　-->
-    <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+    <%= link_to(post.user.name, "/users/#{post.user.id}") %><br><br>
     <!-- ユーザー名前　-->
     <%= post.content1 %>
     <!-- 初句　-->
@@ -43,5 +43,6 @@
     <p><%=link_to("句の詳細","/posts/#{post.id}") %></p> <!-- 句の詳細 -->
     <% end %>
 </div>
+
 
 　
