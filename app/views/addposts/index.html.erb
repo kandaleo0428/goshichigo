@@ -1,27 +1,109 @@
-<h1>連句一覧</h1>
+<!DOCTYPE html>
+<html lang="ja">
 
-<% @addposts.each do |addpost| %>
-  <div>
-  <%= addpost.content1 %>
-  <%= addpost.content2 %>
-  <%= addpost.content3 %>
-  <%= addpost.content4 %>
-  <%= addpost.content5 %>
-  <p>上の句作者：<%= link_to("#{addpost.original_user}","/users/#{addpost.original_user_id}") %>さん</p>
-  <p>下の句作者：<%= link_to("#{addpost.add_user}","/users/#{@current_user.id}") %>さん</p>
+<head>
 
-  <!-- メッセージがあれば出力される -->
-  <% if addpost.addmessage != nil %>
-  <p><%= addpost.add_user %>さんからのメッセージ</p>
-  <%= addpost.addmessage %></p>
-  <% end %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-  <!-- 作成日時 -->
-  <%= addpost.created_at %>
+  <title>GO-SHICHI-GO</title>
 
-  <!-- 削除機能 -->
-    <% if addpost.add_user == @current_user.name%>
-    <%=link_to("削除する","/addposts/#{addpost.id}/destroy", {method: "post"}) %>
-    <% end %>
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/business-frontpage.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">GO-SHICHI-GO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+
+            <% if @current_user %>
+              <a class="nav-link" href="/posts/index">Home
+            <% else %>
+              <a class="nav-link" href="/">TOP画面
+            <% end %>
+
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-primary py-5 mb-5">
+    <div class="part_logo">
+      <h1>連句一覧</h1>
+    </div>
+    <div class="user_index">
+      
+      <% @addposts.each do |addpost| %>
+    <div>
+      <%= addpost.content1 %>
+      <%= addpost.content2 %>
+      <%= addpost.content3 %><br>
+      <%= addpost.content4 %>
+      <%= addpost.content5 %>
+      <p>上の句作者：<%= link_to("#{addpost.original_user}","/users/#{addpost.original_user_id}") %>さん</p>
+      <p>下の句作者：<%= link_to("#{addpost.add_user}","/users/#{@current_user.id}") %>さん</p>
+
+    <!-- メッセージがあれば出力される -->
+      <% if addpost.addmessage != nil %>
+        <p><%= addpost.add_user %>さんからのメッセージ</p>
+        <%= addpost.addmessage %></p>
+      <% end %>
+
+    <!-- 作成日時 -->
+      <%= addpost.created_at %>
+
+    <!-- 削除機能 -->
+      <% if addpost.add_user == @current_user.name%>
+      <%=link_to("削除する","/addposts/#{addpost.id}/destroy", {method: "post"}) %>
+      <% end %>
+    </div>
+      <% end %>
+    </div>
+  </header>
+
   </div>
-<% end %>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Kanda Keisuke 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

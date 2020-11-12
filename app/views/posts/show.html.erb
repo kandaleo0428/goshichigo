@@ -1,11 +1,76 @@
-<p>投稿詳細画面</p>
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>GO-SHICHI-GO</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/business-frontpage.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">GO-SHICHI-GO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+
+            <% if @current_user %>
+              <a class="nav-link" href="/posts/index">Home
+            <% else %>
+              <a class="nav-link" href="/">TOP画面
+            <% end %>
+
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-primary py-5 mb-5">
+    <div class="user_index">
+      
+      <h1><ruby>投稿詳細画面<rt>とうこうしょうさいがめん</rt></ruby></h1>
 <img src="<%= "/user_images/#{@user.image_name}" %>">
 <%= link_to(@user.name,"/users/#{@user.id}") %>
 
+<br>
 <%= @post.content1 %>
 <%= @post.content2 %>
 <%= @post.content3 %>
+
+<br>
 <%= @post.message %>
+
+<br>
 <%= @post.created_at %>
 
 <div class="posts-show-item">
@@ -67,14 +132,20 @@
 <% end %>
 <!-- コメント出力 -->
 
-  <p>この作品へ投稿されたコメント</p>
+  <h3>この作品へ投稿されたコメント</h3>
   <% @comments.each do |comment| %>
-  <!-- それぞれの句に対応したコメントを表示するための設定 --(現在制作中) -->
+  <!-- それぞれの句に対応したコメントを表示するための設定 -->
     <% if comment.comment_post_id == @post.id%>
   <div>
   <% comment.comment_post_id %>
+  
+  <br>
   <%= comment.comment %>
+
+  <br>
   <%= link_to("#{comment.comment_user_name}","/users/#{comment.user_id}") %>
+
+  <br>
   <%= comment.created_at %>
 
   <!-- コメントを投稿したユーザーだけがそのコメントを削除できる機能 -->
@@ -90,4 +161,26 @@
   
 
 <% end %>
-  
+
+
+    </div>
+  </header>
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Kanda Keisuke 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

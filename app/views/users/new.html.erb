@@ -1,17 +1,93 @@
-<h1 class>新規ユーザー登録</h1>
+<!DOCTYPE html>
+<html lang="ja">
 
-<% @user.errors.full_messages.each do |message| %>
-<div class="form-error">
-<%= message %>
-</div>
-<% end %>
+<head>
 
-<%= form_tag("/users/create") do %>
-<p><ruby>詠<rt>よ</rt>み<rt></rt>人<rt>びと</rt>名<rt>めい</rt>（ユーザー名）</ruby></p>
-<input name="name" placeholder="名前を決めてください" value="<%=@user.name %>">
-<p>メールアドレス</p>
-<input name="email" placeholder="メールアドレスを記入する" value="<%=@user.email %>">
-<p>パスワード</p>
-<input name="password" placeholder="パスワードを決める" type="password" value="<%=@user.password %>"><br><br>
-<input type="submit" value="新規登録">
-<% end %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>GO-SHICHI-GO</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/business-frontpage.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">GO-SHICHI-GO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+
+            <a class="nav-link" href="#">Home
+
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-primary py-5 mb-5">
+    
+    <div class="logo">
+      <h2 class>新規ユーザー登録</h2>
+        <% @user.errors.full_messages.each do |message| %>
+      <div class="form-error">
+        <%= message %>
+      </div>
+        <% end %>
+    </div>
+
+    <div class="form">
+        <%= form_tag("/users/create") do %>
+        <p><ruby>詠<rt>よ</rt>み<rt></rt>人<rt>びと</rt>名<rt>めい</rt>（ユーザー名）</ruby></p>
+        <input name="name" placeholder="名前を決めてください" value="<%=@user.name %>">
+        <p>メールアドレス</p>
+        <input name="email" placeholder="メールアドレスを記入する" value="<%=@user.email %>">
+        <p>パスワード</p>
+        <input name="password" placeholder="パスワードを決める" type="password" value="<%=@user.password %>"><br><br>
+        <input type="submit" value="新規登録">
+        <% end %>
+    
+    </div>
+  </header>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Kanda Keisuke 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

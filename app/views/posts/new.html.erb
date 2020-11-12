@@ -1,23 +1,108 @@
-<h1>「一句詠む」（新規の句の登録画面）</h1>
-<h2>五七五の音で一句詠んでください!</h2>
+<!DOCTYPE html>
+<html lang="en">
 
-<%= form_tag("/posts/create") do %>
+<head>
 
-  <% @post.errors.full_messages.each do |message| %>
-    <div class="form-error">
-      <%= message %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>GO-SHICHI-GO</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/business-frontpage.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">GO-SHICHI-GO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+
+            <% if @current_user %>
+              <a class="nav-link" href="/posts/index">Home
+            <% else %>
+              <a class="nav-link" href="/">TOP画面
+            <% end %>
+
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  <% end %> 
+  </nav>
 
-<p>初句（五音）</p>
-<input name="content1">
-<p>二句（七音）</p>
-<input name="content2">
-<p>結句（五音）</p>
-<input name="content3">
-<p>詠み人からのメッセージ（任意）</p>
-<textarea name="message"></textarea>
-<input type="submit" value="詠む">
-<% end %>
+  <!-- Header -->
+  <header class="bg-primary py-5 mb-5">
+    
+　
+    <div class="new_title">
 
-  
+      <h1><ruby>「<rt></rt>一句<rt>いっく</rt>詠<rt>よ</rt>む」</ruby></h1>
+      <h4>五七五の音で一句詠んでください</h4>
+    </div>
+
+    <div class="new_create">
+      <%= form_tag("/posts/create") do %>
+
+        <% @post.errors.full_messages.each do |message| %>
+        <div class="form-error">
+        <%= message %>
+        </div>
+        <% end %> 
+
+      <p>初句（五音）</p>
+      <input name="content1">
+      <p></p>
+      <p>二句（七音）</p>
+      <input name="content2">
+      <p></p>
+      <p>結句（五音）</p>
+      <input name="content3">
+      <p></p>
+      <p>詠み人からのメッセージ（任意）</p>
+      <textarea name="message"></textarea><br><br>
+      <input type="submit" value="詠む">
+      <% end %>
+      <br>
+    </div>
+    
+  </header>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Kanda Keisuke 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

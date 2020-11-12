@@ -1,17 +1,104 @@
-<h1>ユーザー情報の編集</h1>
-<% @user.errors.full_messages.each do |message| %>
-  <div class="form-error">
-     <%= message %>
-  </div>
-<% end %>
+<!DOCTYPE html>
+<html lang="ja">
 
-<%= form_tag("/users/#{@user.id}/update",{multipart:true}) do %>
-<p>ユーザー名</p>
-  <input name="name" value="<%=@user.name %>">
-<h2>画像</h2>
-　<input name="image" type="file">
-<p>メールアドレス</p>
-  <input name="email" value="<%=@user.email %>">
+<head>
 
-  <input type = "submit" value="保存">
-<% end %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>GO-SHICHI-GO</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/business-frontpage.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">GO-SHICHI-GO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+
+            <% if @current_user %>
+              <a class="nav-link" href="/posts/index">Home
+            <% else %>
+              <a class="nav-link" href="/">Top
+            <% end %>
+              <span class="sr-only">(current)</span>
+              
+              </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-primary py-5 mb-5">
+    <div class="edit_logo">
+      <h2>ユーザー情報の編集</h2>
+        <% @user.errors.full_messages.each do |message| %>
+      <div class="form-error">
+        <%= message %>
+      </div>
+        <% end %>
+    </div>
+    
+    <div class="edit_form">
+      <%= form_tag("/users/#{@user.id}/update",{multipart:true}) do %>
+      <h4>ユーザー名</h4>
+        <input name="name" value="<%=@user.name %>">
+        <br>
+        <br>
+        <br>
+      <h4>画像</h4>
+　      <input name="image" type="file">
+        <br>
+        <br>
+        <br>
+      <h4>メールアドレス</h4>
+        <input name="email" value="<%=@user.email %>">
+        <input type = "submit" value="保存">
+        <br>
+        <br>
+      <% end %>
+    </div>
+
+  </header>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Kanda Keisuke 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
