@@ -7,13 +7,13 @@
     padding: 200px 0 300px; //とりあえず左記のように仮設定
     background-repeat: no-repeat;
     background-size: cover;
-    //background-image: url("/DiamondFuji.jpg");
+    //background-image: url("/壁紙１.jpg");
 }
 
 .flash{
     padding: 5px 0;
     color: white;
-    background: blue;
+    background: #343a40;
     text-align: center;
     position: absolute;
     top: 64px;
@@ -32,4 +32,9 @@
     text-orientation: upright;
     color: white;
     margin: 0 auto;
+}
+
+.allview{
+    background-image: url("/背景２.png");
+    background-size: cover;
 }

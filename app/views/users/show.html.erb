@@ -59,19 +59,30 @@
   <header class="bg-primary py-5 mb-5">
     <div class="user_show_info">
       <h1><ruby>詠<rt>よ</rt>み<rt></rt>人<rt>びと</rt>詳細<rt>しょうさい</rt></ruby></h1>
-      <img src="<%="/user_images/#{@user.image_name}"%>">
-      <h4><ruby>詠<rt>よ</rt>み<rt></rt>人<rt>びと</rt>名<rt>めい</rt>：<%=@user.name %></ruby></h4>
-      <p>投稿した句の数：<%= @works_count %>句</p>
-      <p>現在のファン数：<%=@follower_count %>人</p>
 
-      <!-- 登録したメールアドレスは本人にしか表示されない -->
-      
-        <% if @user.id == @current_user.id %>
-          <p>登録メールアドレス：<%=@user.email %></p>
-          <p>←リンクがあるのであとで見えるように修正する</p>
-          <a><%=link_to("ユーザー情報の編集","/users/#{@user.id}/edit")%></a>
-        <% end %>
-      
+      <div class="row">
+      <div class="col-md-8 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="<%="/user_images/#{@user.image_name}"%>" alt="">
+          <div class="card-body">
+            <h4><ruby>詠<rt>よ</rt>み<rt></rt>人<rt>びと</rt>名<rt>めい</rt></h4>
+            <h5 class="card-title"><%=@user.name %></ruby></h5>
+            <p class="card-text">投稿した句の数：<%= @works_count %>句</p>
+            <p class="card-text">現在のファン数：<%=@follower_count %>人</p>
+
+          <!-- 登録したメールアドレスは本人にしか表示されない -->
+            <% if @user.id == @current_user.id %>
+              <p>登録メールアドレス：<%=@user.email %></p>
+            <% end %>
+
+          </div>
+          <div class="card-footer">
+            <% if @user.id == @current_user.id %>
+              <a><%=link_to("ユーザー情報の編集","/users/#{@user.id}/edit")%></a>
+            <% end %>
+          </div>
+        </div>
+      </div>
 
       <!-- 自分以外のユーザーをお気に入りにできる機能（自分のユーザーページには表示されない）　-->
 　      <% if @user.id != @current_user.id %>
