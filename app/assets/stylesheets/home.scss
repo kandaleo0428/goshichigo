@@ -13,7 +13,7 @@
 .flash{
     padding: 5px 0;
     color: white;
-    background: #343a40;
+    background: #007bff;
     text-align: center;
     position: absolute;
     top: 64px;
@@ -21,6 +21,7 @@
     width: 100%;
     border-radius: 0 0 2px 2px;
     font-size: 14px;
+    opacity: 0.8;
 }
 
 .form-error{
@@ -38,3 +39,10 @@
     background-image: url("/背景２.png");
     background-size: cover;
 }
+
+.container{
+    background-color: #007bff;
+    border-radius: 20px;
+    opacity: 0.8;
+}
+
