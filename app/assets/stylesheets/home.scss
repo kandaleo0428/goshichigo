@@ -3,11 +3,9 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .top-main{
-    //writing-mode: vertical-rl; //縦書き文字の設定
     padding: 200px 0 300px; //とりあえず左記のように仮設定
     background-repeat: no-repeat;
     background-size: cover;
-    //background-image: url("/壁紙１.jpg");
 }
 
 .flash{
@@ -65,4 +63,15 @@
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.card-img-top{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.card-body{
+    border-radius: 50%;
 }

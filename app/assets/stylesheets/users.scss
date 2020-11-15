@@ -65,8 +65,8 @@
    
 .bg-primary{
     background-image: url("/背景１.png");
-    //background-color: #343a40;
     background-size: cover;
+    //opacity: 0.9;
 }
 
 .black{
@@ -83,5 +83,9 @@
 
 .blue{
     color: #007bff;
+}
+
+.white{
+    color: white;
 }
 
