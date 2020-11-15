@@ -55,24 +55,24 @@
     </div>
   </nav>
 
-  <!-- Header -->
+  <!-- 上段（作品詳細欄） -->
   <header class="bg-primary py-5 mb-5">
     <div class="user_index">
       
       <h1><ruby>投稿詳細画面<rt>とうこうしょうさいがめん</rt></ruby></h1>
-<img src="<%= "/user_images/#{@user.image_name}" %>">
-<%= link_to(@user.name,"/users/#{@user.id}") %>
+      <p>【詠み人】<%= link_to(@user.name,"/users/#{@user.id}") %></p>
+　　　<img class="post_photo" src="<%= "/user_images/#{@user.image_name}" %>">
 
-<br>
-<%= @post.content1 %>
-<%= @post.content2 %>
-<%= @post.content3 %>
+     <h4>【作品】</h4>
+     <h2><%= @post.content1 %></h2>
+         <h2><%= @post.content2 %></h2>
+              <h2><%= @post.content3 %></h2>
 
-<br>
-<%= @post.message %>
+　　　<h4>【詠み人からのメッセージ】</h4>
+　　　<%= @post.message %>
 
-<br>
-<%= @post.created_at %>
+     <h4>【投稿日時】</h4>
+     <%= @post.created_at %>
 
 <div class="posts-show-item">
 <% if Like.find_by(user_id:@current_user.id, post_id:@post.id)%>
@@ -107,7 +107,8 @@
     <%= hidden_field_tag :content3, @post.content3 %>
     <%= hidden_field_tag :user_name, @user.name %>
     <%= hidden_field_tag :user_id, @user.id %>
-    <input type="submit" value="この句に連句する">
+    <br>
+    <input class="circle" type="submit" value="この句に連句する">
   <% end %>
 
 <!-- コメント機能 -->
@@ -132,21 +133,44 @@
   <% end %>
 <% end %>
 <!-- コメント出力 -->
+ <% @comments.each do |comment| %>
+  <!-- コメントを投稿したユーザーだけがそのコメントを削除できる機能 -->
+      <% if session[:user_id] == comment.user_id %>
+  　    <%= form_tag("/comments/#{comment.id}/destroy") do %>
+  　　    <%= hidden_field_tag :post_id, @post.id %>
+  　    <input type="submit" value="削除する">
+      <% end %>
 
-  <h3>この作品へ投稿されたコメント</h3>
+    
+  <% end %>
+  </div>
+<% end %>
+
+
+    </div>
+  </header>
+
+  </div>
+  <!-- /.container -->
+
+
+  <!-- 下段（コメント欄） -->
+  <header class="bg-primary py-5 mb-5">
+    <div class="user_index">
+  
+  <div class="index_comment_logo">
+    <h3>この作品へ投稿されたコメント</h3>
+  
   <% @comments.each do |comment| %>
   <!-- それぞれの句に対応したコメントを表示するための設定 -->
     <% if comment.comment_post_id == @post.id%>
   <div>
   <% comment.comment_post_id %>
-  
-  <br>
+  <!-- 投稿されたコメント -->
   <%= comment.comment %>
-
-  <br>
+  <!-- 氏名 -->
   <%= link_to("#{comment.comment_user_name}","/users/#{comment.user_id}") %>
-
-  <br>
+  <!-- 日時 -->
   <%= comment.created_at %>
 
   <!-- コメントを投稿したユーザーだけがそのコメントを削除できる機能 -->
@@ -159,16 +183,42 @@
     <% end %>
   <% end %>
   </div>
-  
+  </div>
 
 <% end %>
 
-
-    </div>
+  </div>
   </header>
 
+
+  <div class="row">
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">
+            　
+            </p>
+          </div>
+          <div class="card-footer">
+          </div>
+        </div>
+      </div>
   </div>
-  <!-- /.container -->
+
+  <div class="row">
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="https://placehold.it/300x200" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Find Out More!</a>
+          </div>
+        </div>
+      </div>
 
   <!-- Footer -->
   <footer class="py-5">
