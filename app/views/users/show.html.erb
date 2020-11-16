@@ -78,9 +78,9 @@
     </div>
   </header>
 
-    <div class="user_works">
+  
     <% @user.posts.each do |post| %>
-    <div class="row">
+      <div class="row">
         <div class="col">
             <img src="<%= "/user_images/#{post.user.image_name}" %>"><br>
             <!-- 本人写真　-->
@@ -96,8 +96,10 @@
             <!-- メッセージ　-->
             <p><%=link_to("句の詳細","/posts/#{post.id}") %></p> <!-- 句の詳細 -->
         </div>
+      </div>
     <% end %>
-</div>
+   
+
 
 
 
