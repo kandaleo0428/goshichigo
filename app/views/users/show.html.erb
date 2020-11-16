@@ -101,29 +101,25 @@
   </header>
 
     <div class="user_works">
-      <% @user.posts.each do |post| %>
-      <div class="row">
-        <div class="col-md-11 mb-5">
-          <div class="card h-100">
-            <img class="card-img-top" src="<%= "/user_images/#{post.user.image_name}" %>">
-            <div class="card-body">
-              <p class="card-text"><%= post.content1 %></p>
-              <p class="card-text">　　<%= post.content2 %></p>
-              <p class="card-text">　　　　<%= post.content3 %></p><br>
-              <p>詠み人</p>
-              <p class="card-text"><%= link_to(post.user.name, "/users/#{post.user.id}") %></p>
-              <p>詠み人からのメッセージ</p>
-              <p class="card-text"><%= post.message %></p>
-
-            </div>
-            <div class="card-footer">
-              <a><%=link_to("句の詳細","/posts/#{post.id}") %></a>
-            </div>
-          </div>
+    <% @user.posts.each do |post| %>
+    <div class="row">
+        <div class="col">
+            <img src="<%= "/user_images/#{post.user.image_name}" %>"><br>
+            <!-- 本人写真　-->
+            <%= link_to(post.user.name, "/users/#{post.user.id}") %><br><br>
+            <!-- ユーザー名前　-->
+            <%= post.content1 %>
+            <!-- 初句　-->
+            <%= post.content2 %>　
+            <!-- 二句　-->
+            <%= post.content3 %>　
+            <!--　結句　-->
+            <p>詠み人からのメッセージ：<%= post.message %></p>　
+            <!-- メッセージ　-->
+            <p><%=link_to("句の詳細","/posts/#{post.id}") %></p> <!-- 句の詳細 -->
         </div>
-      </div>
     <% end %>
-    </div>
+</div>
 
 
 
