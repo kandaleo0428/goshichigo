@@ -62,11 +62,11 @@
         <% @users.each do |user| %>
 
       <div>
-        <img src="<%="/user_images/#{user.image_name}"%>">
+        <img class="user_index_photo" src="<%="/user_images/#{user.image_name}"%>">
       </div>
 
       <div>
-        <%= link_to(user.name, "/users/#{user.id}") %>
+        <p><%= link_to(user.name, "/users/#{user.id}") %>　さん</p>
       </div>
 
         <% end %>
