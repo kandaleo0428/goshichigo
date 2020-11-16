@@ -33,6 +33,7 @@
 
 .circle{
     border-radius: 100%;
+    opacity: 0.8;
 }
 
 .post_photo{
@@ -42,7 +43,12 @@
     object-fit: cover;
 }
 
-.index_comment_logo{
-    margin-left: 100%;
+.show_comment_logo{
+    margin-left: 300%;
+    color: #007bff;
 }
 
+.show_comment{
+    color: white;
+    margin-left: 35%;
+}
