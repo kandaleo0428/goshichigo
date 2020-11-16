@@ -64,11 +64,11 @@
 
       <!-- お気に入り詠み人にしたユーザーの画像出力-->
       <div>
-　　     <img src="<%= "/user_images/#{user.image_name}" %>" >
+　　     <img class="user_index_photo" src="<%= "/user_images/#{user.image_name}" %>" >
       </div>
 
       <!-- お気に入り詠み人にしたユーザーの名前出力 -->
-      <p><%= link_to(user.name, "/users/#{user.id}") %>さん</P>
+      <p><%= link_to(user.name, "/users/#{user.id}") %>  さん</P>
       <% end %>
     </div>
   </header>
