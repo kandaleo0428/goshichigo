@@ -36,39 +36,56 @@
 
   <!-- Header -->
   <header class="bg-primary py-5 mb-5">
-    <div>
-      <h1 class="renku_logo">連句一覧</h1>
+    <div class="renku_logo">
+      <h1>連句一覧&ensp;</h1>
     </div>
-    <div class="user_index">
+
+ 
       
       <% @addposts.each do |addpost| %>
+      <div class="row">
+            <div class="col">
+              <div class="user_works">
+                <div class="card h-100">
+                <div class="like_card">
     <div>
-      <%= addpost.content1 %>
-      <%= addpost.content2 %>
-      <%= addpost.content3 %><br>
-      <%= addpost.content4 %>
-      <%= addpost.content5 %>
-      <p>上の句作者：<%= link_to("#{addpost.original_user}","/users/#{addpost.original_user_id}") %>さん</p>
-      <p>下の句作者：<%= link_to("#{addpost.add_user}","/users/#{@current_user.id}") %>さん</p>
-
+      <h2>&ensp;<%= addpost.content1 %></h2>
+      <h2>&ensp;&ensp;&ensp;<%= addpost.content2 %></h2>
+      <h2>&ensp;&ensp;&ensp;&ensp;&ensp;<%= addpost.content3 %></h2>
+      <h5></h5>
+      <h2>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<%= addpost.content4 %></h2>
+      <h2>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<%= addpost.content5 %></h2>
+      <br>
+      <p>&ensp;&ensp;&ensp;&ensp;上の句作者：<%= link_to("#{addpost.original_user}","/users/#{addpost.original_user_id}") %>さん</p>
+      <p>&ensp;&ensp;&ensp;&ensp;下の句作者：<%= link_to("#{addpost.add_user}","/users/#{@current_user.id}") %>さん</p>
+      <br>
     <!-- メッセージがあれば出力される -->
       <% if addpost.addmessage != nil %>
-        <p><%= addpost.add_user %>さんからのメッセージ</p>
-        <%= addpost.addmessage %></p>
+        <p>&ensp;&ensp;<%= addpost.add_user %>さんからのメッセージ</p>
+        <p>&ensp;&ensp;「<%= addpost.addmessage %>」</p>
       <% end %>
 
     <!-- 作成日時 -->
       <%= addpost.created_at %>
-
+　　　 <br>
+      <br>
     <!-- 削除機能 -->
       <% if addpost.add_user == @current_user.name%>
       <%=link_to("削除する","/addposts/#{addpost.id}/destroy", {method: "post"}) %>
       <% end %>
     </div>
+    </div> 
+              </div>
+              </div>
+              <br>
+            </div>
+          </div>
       <% end %>
+      
     </div>
+    
   </header>
-
+  
   </div>
   <!-- /.container -->
 
