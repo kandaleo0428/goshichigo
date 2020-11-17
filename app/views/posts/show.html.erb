@@ -43,40 +43,42 @@
 　　　<img class="post_photo" src="<%= "/user_images/#{@user.image_name}" %>">
 
      <h4>【作品】</h4>
-     <h2><%= @post.content1 %></h2>
-         <h2><%= @post.content2 %></h2>
-              <h2><%= @post.content3 %></h2>
+     <h2>&ensp;<%= @post.content1 %></h2>
+     <h2>&ensp;&ensp;&ensp;<%= @post.content2 %></h2>
+     <h2>&ensp;&ensp;&ensp;&ensp;&ensp;<%= @post.content3 %></h2>
 
 　　　<h4>【詠み人からのメッセージ】</h4>
 　　　<%= @post.message %>
 
      <h4>【投稿日時】</h4>
      <%= @post.created_at %>
+     <br>
+     <br>
+     <br>
 
   <div class="posts-show-item">
   <% if Like.find_by(user_id:@current_user.id, post_id:@post.id)%>
   <!--「好いですね」を押している -->
 
   <%=link_to("/likes/#{@post.id}/destroy",{method: "post"}) do %>
-  <span class="fas fa-dove faa-bounce animated like-btn-unlike"></span>
+  <span class="fas fa-dove faa-bounce animated like-btn-unlike">&ensp;お気に入りに追加済み</span><br>
   <% end %>
 
   <% else %>
 
 　<!--「好いですね」を押していない -->
   <%=link_to("/likes/#{@post.id}/create",{method: "post"}) do %>
-  <span class="fas fa-dove like-btn"></span>
-
+  <span class="fas fa-dove like-btn">&ensp;お気に入りに追加する</span><br>
+  
   <% end %>
-
   <% end %>
+  【お気に入りに追加されている数】<%=@likes_count %>
   </div>
 
-  <%=@likes_count %>
-
   <% if @post.user_id == @current_user.id %>
-  <%=link_to("編集","/posts/#{@post.id}/edit") %>
-  <%=link_to("削除","/posts/#{@post.id}/destroy", {method: "post"}) %>
+  <%=link_to("編集する","/posts/#{@post.id}/edit") %>
+  <br>
+  <%=link_to("削除する","/posts/#{@post.id}/destroy", {method: "post"}) %>
   <% end %>
 
 <!-- 連句機能 -->
