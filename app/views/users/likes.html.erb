@@ -36,36 +36,47 @@
 
   <!-- Header -->
   <header class="bg-primary py-5 mb-5">
-    <div class="part_logo">
-      <h4><%= @user.name %>さんのお気に入りの句</h4>
-    </div>
-
-    <div class="user_index">
+      <div class="part_logo">
+        <h6><%= @user.name %>さんの</h6>
+        <h2>&ensp;&ensp;お気に入りの句一覧</h2>
+      </div>
       
-          
           <% if @user.id == @current_user %>
             <%= link_to("編集","/users/#{@user.id}/edit") %>
           <% end %>
 
-      <div>
+     <div>
         <% @likes.each do |like| %>
-        <% post = Post.find_by(id: like.post_id)%>
-        <img class="user_index_photo" src="<%="/user_images/#{post.user.image_name}" %>">
-        <%=link_to(post.user.name, "/users/#{post.user.id}") %>
-        <br>
-        <br>
-        <%= post.content1 %>
-        <%= post.content2 %>
-        <%= post.content3 %>
-        <br>
-        <%= link_to("句の詳細","/posts/#{post.id}") %>
-        <br>
-        <% end %>
-      </div>
-    </div>
-  </header>
+        <div class="row">
+            <div class="col">
+            <div class="user_works">
 
-  </div>
+               <div class="card h-100">
+                    <% post = Post.find_by(id: like.post_id)%>
+                    <img class="user_index_photo" src="<%="/user_images/#{post.user.image_name}" %>">
+                      <br>
+                      <br>
+                    &ensp;&ensp;<%= post.content1 %><br>
+                    &ensp;&ensp;&ensp;&ensp;<%= post.content2 %><br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<%= post.content3 %>
+                      <br>
+                      <br>
+                      <br>
+                      【詠み人】
+                    &ensp;&ensp;<%=link_to(post.user.name, "/users/#{post.user.id}") %>
+                      <br>
+                        <%= link_to("【句の詳細】","/posts/#{post.id}") %>
+                      <br>
+                 </div>
+
+             </div>
+             </div>
+         </div>
+         <br>
+         <% end %>
+      </div>
+   </header>
+
   <!-- /.container -->
 
   <!-- Footer -->
