@@ -62,8 +62,8 @@
           </div>
         </div>
       </div>
-
-      <!-- 自分以外のユーザーをお気に入りにできる機能（自分のユーザーページには表示されない）　-->
+    </div>
+    <!-- 自分以外のユーザーをお気に入りにできる機能（自分のユーザーページには表示されない）　-->
 　      <% if @user.id != @current_user.id %>
         <% if Follow.find_by(following_user_id: @current_user.id, followed_user_id: @user.id) %>
       <!-- いいね！を押している -->
@@ -75,7 +75,6 @@
         <%=link_to("#{@user.name}さんをお気に入り詠み人に追加する","/follows/#{@user.id}/create", {method: "post"}) %>
         <% end %>
         <% end %>
-    </div>
   </header>
 
 <!-- 作品一覧 -->

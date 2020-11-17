@@ -37,7 +37,9 @@
   <!-- Header -->
   <header class="bg-primary py-5 mb-5">
     <div class="user_index">
-      <h4><%= @current_user.name %>さんの気に入り詠み人一覧</h4>
+      <h6><%= @current_user.name %>さんの</h6>
+      <h2>&ensp;&ensp;お気に入り詠み人一覧</h2>
+
           <% @follows.each do |follow| %>
           <% user = User.find_by(id: follow.followed_user_id) %>
 
