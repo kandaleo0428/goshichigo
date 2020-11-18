@@ -1,13 +1,82 @@
-<h1><%= @current_user.name %>さんへのコメント一覧</h1>
-　
-  <!-- ユーザーに対応したコメントを表示するための設定 -->
-  <% @comments.each do |comment| %>
-    <% if @current_user.id == comment.original_user_id %>
-      <div>
-      あなたが詠んだ句「<%=link_to "#{comment.original_content1} #{comment.original_content2} #{comment.original_content3}","/posts/#{comment.comment_post_id}" %>」
-      へ <%= link_to("#{comment.comment_user_name}","/users/#{comment.user_id}") %>さんから
-      「<%= link_to("#{comment.comment}","/posts/#{comment.comment_post_id}") %>」というコメントが投稿されました。
-      投稿日時：<%= comment.created_at %>
-　    </div>
-    <% end %>
-  <% end %>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">GO-SHICHI-GO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+
+            <% if @current_user %>
+              <a class="nav-link" href="/posts/index">Home
+            <% else %>
+              <a class="nav-link" href="/">TOP画面
+            <% end %>
+
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-primary py-5 mb-5">
+      <div class="part_logo">
+        <h6><%= @current_user.name %>さんへの</h6>
+        <h2>&ensp;&ensp;コメント一覧</h2>
+      </div>
+      <!-- ユーザーに対応したコメントを表示するための設定 -->
+      <% @comments.each do |comment| %>
+        <% if @current_user.id == comment.original_user_id %>
+          <div class="row">
+            <div class="col">
+              <div class="user_works">
+                <div class="card h-100">
+                
+                  <p>あなたが詠んだ句</p>
+                  <p>「<%=link_to "#{comment.original_content1}  #{comment.original_content2}  #{comment.original_content3}","/posts/#{comment.comment_post_id}" %>」へ</p>
+                  <p>&ensp;&ensp;&ensp;&ensp;<%= link_to("#{comment.comment_user_name}","/users/#{comment.user_id}") %>さんから</p>
+                  <p>「<%= link_to("#{comment.comment}","/posts/#{comment.comment_post_id}") %>」というコメントが投稿されました。</p>
+                  投稿日時：<%= comment.created_at %>
+
+　              </div> 
+              </div>
+            </div>
+          </div>
+          <br>
+        <% end %>
+      <% end %>
+  </header>
+
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Kanda Keisuke 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -58,3 +58,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #  gem 'ruby-debug-ide'
 #  gem 'debase', '~> 0.2.4.1'
 # end
+
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'

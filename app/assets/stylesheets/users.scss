@@ -1,13 +1,114 @@
 .user_show_info{
+    color: #212529;
     writing-mode: vertical-rl;
     text-orientation: upright;
-    color: black;
-    margin: 0 0 0 auto;
+    margin:0 auto;
 }
 
 .user_works{
     writing-mode: vertical-rl;
-    text-orientation: upright;
     color: black;
-    margin: 0 0 0 auto;
+    margin: 0 auto;
+}
+
+.user_works_logo{
+    writing-mode: vertical-rl;
+    font-size: 60px;
+    color: #007bff;
+    float: right;
+    opacity: 0.9;
+}
+
+.logo{
+    color: white;
+    writing-mode: vertical-rl;
+    padding-right: 510px;
+    float: right;
+}
+
+.part_logo{
+    color: #007bff;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    float: right;
+}
+
+.form{
+    color: white;
+    padding-left: 550px;
+}
+
+.edit_logo{
+    color: white;
+    writing-mode: vertical-rl;
+    padding-right: 480px;
+    float: right;
+    opacity: 0.9;
+}
+
+.edit_form{
+    color: white;
+    padding-left: 490px;
+}
+
+.user_index{
+    color: white;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    margin:0 auto;
+}
+
+.renku_logo{
+    color: white;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    float: right;
+    padding-right: 380px;
+}
+
+.renku_form{
+    color: white;
+    padding-left: 450px;
+}
+   
+.bg-primary{
+    background-image: url("/背景１.png");
+    background-size: cover;
+    //opacity: 0.9;
+}
+
+.black{
+    color: black;
+}
+
+.far{
+    color: #007bff;
+}
+
+.fas{
+    color: #007bff;
+}
+
+.blue{
+    color: #007bff;
+}
+
+.white{
+    color: white;
+}
+
+.user_index_photo{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.show_index_works_font{
+    font-size: 30px;
+}
+
+.like_card{
+    outline-style: dashed;
+    outline-color: white;
 }

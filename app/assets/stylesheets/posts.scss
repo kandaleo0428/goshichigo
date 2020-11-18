@@ -6,3 +6,59 @@
  color: #ff2581;
 }
 
+.new_title{
+    writing-mode: vertical-rl;
+    color: white;
+    float: right;
+    padding-right: 480px;
+}
+
+.new_create{
+    color: white;
+    padding-left: 470px;
+}
+
+.index_logo{
+    color: black;
+    writing-mode: vertical-rl;
+    padding-right: 530px;
+    float: right;
+}
+
+.user_works{
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    color: black;
+}
+
+.circle{
+    border-radius: 100%;
+    opacity: 0.8;
+}
+
+.post_photo{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.show_comment_logo{
+    margin-left: 50%;
+    color: #007bff;
+}
+
+.show_comment{
+    color: white;
+    margin-left: 35%;
+}
+
+.index_logo{
+    color: white;
+    padding-right: 100px;
+    opacity: 0.9;
+}
+
+.post_index_works_font{
+    font-size: 45px;
+}

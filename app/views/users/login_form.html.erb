@@ -1,16 +1,88 @@
-<% if @error_message %>
-  <div class="form-error">
-     <%= @error_message %>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">GO-SHICHI-GO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+          
+            <% if @current_user %>
+              <a class="nav-link" href="/posts/index">Home
+            <% else %>
+              <a class="nav-link" href="/">Top
+            <% end %>
+            
+            <a>
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-primary py-5 mb-5">
+          
+            <div class="logo">
+
+              <% if @error_message %>
+                <div class="form-error">
+                <%= @error_message %>
+                </div>
+              <% end %>
+            
+              <h3>ログインフォーム<ruby>画面<rt>がめん</rt></ruby></h3>
+            </div>
+
+            <div class="form">
+            <br>
+            <br>
+              <%= form_tag("/login") do %>
+              <p>メールアドレス</p>
+                <input name="email" placeholder="メールアドレスを記入する" value="<%=@email%>">
+              <p>パスワード</p>
+                <input type="password" placeholder="パスワードを記入する" name="password" value="<%=@password%>">
+                <br>
+                <br>
+                <input type="submit" value="ログイン">
+                <br>
+                <br>
+                <br>
+                <br>
+              <% end %>
+            </div>
+  </header>
+
+
+  <!-- Footer -->
+  <div class="blue">
+  <footer class="py-5">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Kanda Keisuke 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
   </div>
-<% end %>
 
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<h1>ログインフォーム画面</h1>
+</body>
 
-<%= form_tag("/login") do %>
-<p>メールアドレス</p>
-  <input name="email" value="<%=@email%>">
-<p>パスワード</p>
-  <input type="password" name="password" value="<%=@password%>">
-  <input type="submit" value="ログイン">
-<% end %>
+</html>

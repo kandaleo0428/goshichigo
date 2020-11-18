@@ -1,19 +1,84 @@
-<h1>投稿された句</h1>
-<% @posts.each do |post| %>
-<div class="main posts-index">
-  
-  <div>
-    <img src="<%= "/user_images/#{post.user.image_name}" %>">
-  </div>
-  <div>
-    <%=link_to(post.user.name, "/users/#{post.user.id}") %>
-  </div>
+<body>
 
-<%= post.content1 %>
-<%= post.content2 %>
-<%= post.content3 %>
-<p>詠み人からのメッセージ：<%= post.message %></p>
-<%= post.created_at %>
-<%=link_to("句の詳細","/posts/#{post.id}") %>
-</div>
-<% end %>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">GO-SHICHI-GO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+<!-- 投稿された句のインデックス -->
+
+  <header class="bg-primary py-5 mb-5">
+    <div class="index_logo">
+      <h1>投稿された句</h1>
+    </div>
+      
+    <% @posts.each do |post| %>
+    <div class="row">
+      <div class="col">
+        <div class="user_works">
+        <div class="card h-100">
+          <img class="card-img-top" src="<%= "/user_images/#{post.user.image_name}" %>">
+            
+          <div class="card-body">
+            <p class="card-text"> 
+              <p>【作品】</p>
+              <a class="post_index_works_font">&ensp;<%= post.content1 %></a><br>
+              <a class="post_index_works_font">&ensp;&ensp;&ensp;<%= post.content2 %></a><br>
+              <a class="post_index_works_font">&ensp;&ensp;&ensp;&ensp;&ensp;<%= post.content3 %></a>
+            </p>
+
+            <p>【詠み人】</p>
+            <p class="card-title"><%= link_to(post.user.name, "/users/#{post.user.id}") %>　さん</p>
+            <p>【詠み人からのメッセージ】</p>
+            <p><%= post.message %></p>
+            <p>【投稿日時】</p>
+            <p><%= post.created_at %></p>
+
+          </div>
+            <div class="card-footer">
+              <a><%=link_to("句の詳細","/posts/#{post.id}") %></a>
+            </div>
+        </div>
+      </div>
+      <br>
+    <% end %>
+    
+  </header>
+  
+
+  <!-- Footer -->
+  <footer class="py-5">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Kanda Keisuke 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>

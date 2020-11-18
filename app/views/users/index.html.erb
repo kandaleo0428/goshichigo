@@ -1,13 +1,73 @@
-<h1>詠み人一覧（ユーザー一覧）</h1>
-<% @users.each do |user| %>
+<body>
 
-<div>
-<img src="<%="/user_images/#{user.image_name}"%>">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">GO-SHICHI-GO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+
+            <% if @current_user %>
+              <a class="nav-link" href="/posts/index">Home
+            <% else %>
+              <a class="nav-link" href="/">TOP画面
+            <% end %>
+
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-primary py-5 mb-5">
+    <div class="user_index">
+      <h1>詠み人一覧（ユーザー一覧）</h1>
+        <% @users.each do |user| %>
+
+      <div>
+        <img class="user_index_photo" src="<%="/user_images/#{user.image_name}"%>">
+      </div>
+
+      <div>
+        <p><%= link_to(user.name, "/users/#{user.id}") %>　さん</p>
+      </div>
+
+        <% end %>
+    </div>
+  </header>
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Kanda Keisuke 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
 </div>
-
-<div>
-<%= link_to(user.name, "/users/#{user.id}") %>
-</div>
-
-<% end %>
-
