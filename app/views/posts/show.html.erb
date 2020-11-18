@@ -134,48 +134,48 @@
 
 
   <!-- 下段（コメント欄） -->
-  
+     
   <header class="bg-primary py-5 mb-5">
-      
-      <div class="user_index">
-      <h3 class="show_comment_logo">この句へのコメント</h3>
+    <h3 class="part_logo">この句へのコメント</h3>
   
-  <% @comments.each do |comment| %>
-  <!-- それぞれの句に対応したコメントを表示するための設定 -->
-  <div class="row">
-            <div class="col">
+      <% @comments.each do |comment| %>
+        <div class="row">
+          <div class="col">
             <div class="user_works">
-                
+            
+              <!-- それぞれの句に対応したコメントを表示するための設定 -->
+              <% if comment.comment_post_id == @post.id%>
+                <div>
+                   <% comment.comment_post_id %>
+                   
+                   <!-- 投稿されたコメント -->
+                   <div class="show_comment">
+                   <h4>「<%= comment.comment %>」</h4>
+                   <!-- 氏名 -->
+                   <%= link_to("#{comment.comment_user_name}","/users/#{comment.user_id}") %>さんより<br>
+                   <!-- 日時 -->
+                   投稿日時：<%= comment.created_at %><br>
 
-    <% if comment.comment_post_id == @post.id%>
-  <div>
-  <% comment.comment_post_id %>
+                     <!-- コメントを投稿したユーザーだけがそのコメントを削除できる機能 -->
+                     <% if session[:user_id] == comment.user_id %>
+  　                     <%= form_tag("/comments/#{comment.id}/destroy") do %>
+  　　                   <%= hidden_field_tag :post_id, @post.id %>
+  　                    <input class="circle" type="submit" value="削除する">
+                     <% end %>
+                    </div>
+                  
+                 </div>
+               <% end %> 
+                 
+             </div>
+           </div>
+         <% end %>
 
-    <!-- 投稿されたコメント -->
-    <div class="show_comment">
-    <h4>「<%= comment.comment %>」</h4>
-    <!-- 氏名 -->
-    <%= link_to("#{comment.comment_user_name}","/users/#{comment.user_id}") %>さんより<br>
-    <!-- 日時 -->
-    投稿日時：<%= comment.created_at %><br>
-
-    <!-- コメントを投稿したユーザーだけがそのコメントを削除できる機能 -->
-        <% if session[:user_id] == comment.user_id %>
-  　      <%= form_tag("/comments/#{comment.id}/destroy") do %>
-  　　      <%= hidden_field_tag :post_id, @post.id %>
-  　      <input class="circle" type="submit" value="削除する">
-        <% end %>
-    <% end %>
-  <% end %>
-  <br>
-  </div>
-  </div>
-  </div>
-
-  <% end %>
-
-  </div>
-  </header>
+       </div>
+      <% end %>
+    </header>
+  
+  
 
   <!-- Footer -->
   <footer class="py-5">

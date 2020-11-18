@@ -40,7 +40,6 @@
         <h6><%= @current_user.name %>さんへの</h6>
         <h2>&ensp;&ensp;コメント一覧</h2>
       </div>
-
       <!-- ユーザーに対応したコメントを表示するための設定 -->
       <% @comments.each do |comment| %>
         <% if @current_user.id == comment.original_user_id %>
