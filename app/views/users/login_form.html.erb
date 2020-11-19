@@ -59,12 +59,15 @@
                 <input type="password" placeholder="パスワードを記入する" name="password" value="<%=@password%>">
                 <br>
                 <br>
-                <input type="submit" value="ログイン">
-                <br>
-                <br>
+                <input class="btn outline btn-primary" type="submit" value="ログイン">
                 <br>
                 <br>
               <% end %>
+
+              <%= form_tag("/testuserlogin") do %>
+              <input class="btn outline btn-primary" type="submit" value="簡単ログイン（閲覧用）">
+              <% end %>
+
             </div>
   </header>
 
