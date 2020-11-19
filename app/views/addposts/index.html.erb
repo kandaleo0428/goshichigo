@@ -71,7 +71,7 @@
       <br>
     <!-- 削除機能 -->
       <% if addpost.add_user == @current_user.name%>
-      <%=link_to("削除する","/addposts/#{addpost.id}/destroy", {method: "post"}) %>
+      <%=link_to "削除する","/addposts/#{addpost.id}/destroy", class: "btn outline btn-primary",method: "post" %>
       <% end %>
     </div>
     </div> 

@@ -45,7 +45,7 @@
       </div>
 
       <div>
-        <p><%= link_to(user.name, "/users/#{user.id}") %>　さん</p>
+        <p><%= link_to user.name, "/users/#{user.id}", class: "btn-white" %>　さん</p>
       </div>
 
         <% end %>

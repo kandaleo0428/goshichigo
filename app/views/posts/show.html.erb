@@ -61,14 +61,14 @@
   <!--「好いですね」を押している -->
 
   <%=link_to("/likes/#{@post.id}/destroy",{method: "post"}) do %>
-  <span class="fas fa-dove faa-bounce animated like-btn-unlike">&ensp;お気に入りに追加済み</span><br>
+  <span class="fas fa-dove faa-bounce animated like-btn-unlike badge badge-primary">&ensp;お気に入りに追加済み</span><br>
   <% end %>
 
   <% else %>
 
 　<!--「好いですね」を押していない -->
-  <%=link_to("/likes/#{@post.id}/create",{method: "post"}) do %>
-  <span class="fas fa-dove like-btn">&ensp;お気に入りに追加する</span><br>
+  <%= link_to("/likes/#{@post.id}/create",{method: "post"}) do %>
+  <span class="fas fa-dove like-btn badge badge-primary">&ensp;お気に入りに追加する</span><br>
   
   <% end %>
   <% end %>
@@ -76,9 +76,8 @@
   </div>
 
   <% if @post.user_id == @current_user.id %>
-  <%=link_to("編集する","/posts/#{@post.id}/edit") %>
-  <br>
-  <%=link_to("削除する","/posts/#{@post.id}/destroy", {method: "post"}) %>
+  <%=link_to "編集する","/posts/#{@post.id}/edit", class: "btn outline btn-primary" %>&ensp;
+  <%=link_to "削除する","/posts/#{@post.id}/destroy", class: "btn outline btn-primary", method: "post"  %>
   <% end %>
 
 <!-- 連句機能 -->
@@ -88,7 +87,7 @@
     <%= hidden_field_tag :content3, @post.content3 %>
     <%= hidden_field_tag :user_name, @user.name %>
     <%= hidden_field_tag :user_id, @user.id %><br>
-    <input class="circle" type="submit" value="連句する">
+    <input class="btn outline btn-primary" type="submit" value="連句する">
   <% end %>
 
 <!-- コメント機能 -->
@@ -109,7 +108,7 @@
   <!-- コメントを投稿したユーザーの情報を送信-->
     <%= hidden_field_tag :post_id, @post.id %>
     <%= hidden_field_tag :comment_user_name, @current_user.name %><br>
-    <input class="circle" type="submit" value="投稿する">
+    <input class="btn outline btn-primary" type="submit" value="投稿する">
   <% end %>
  <% end %>
   <!-- コメント出力 -->
@@ -152,7 +151,7 @@
                    <div class="show_comment">
                    <h4>「<%= comment.comment %>」</h4>
                    <!-- 氏名 -->
-                   <%= link_to("#{comment.comment_user_name}","/users/#{comment.user_id}") %>さんより<br>
+                   <%= link_to "#{comment.comment_user_name}","/users/#{comment.user_id}", class: "btn-white" %> &ensp;さんより<br>
                    <!-- 日時 -->
                    投稿日時：<%= comment.created_at %><br>
 
