@@ -10,7 +10,8 @@ class AddpostsController < ApplicationController
             addmessage: params[:addmessage],
             original_user: params[:user_name],
             original_user_id: params[:user_id],
-            add_user: @current_user.name
+            add_user: @current_user.name,
+            add_user_id: @current_user.id
         )
         if @addpost.save
             flash[:notice] = "連句しました"
