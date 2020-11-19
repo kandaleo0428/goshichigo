@@ -49,7 +49,7 @@
       </div>
 
       <!-- お気に入り詠み人にしたユーザーの名前出力 -->
-      <p><%= link_to(user.name, "/users/#{user.id}") %>  さん</P>
+      <p><%= link_to user.name, "/users/#{user.id}", class: "btn-white" %>&ensp;さん</P>
       <% end %>
     </div>
   </header>
