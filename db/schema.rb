@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_06_024408) do
+ActiveRecord::Schema.define(version: 2020_11_19_024949) do
 
   create_table "addposts", force: :cascade do |t|
     t.string "content4"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_11_06_024408) do
     t.string "original_user"
     t.string "add_user"
     t.integer "original_user_id"
+    t.integer "add_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
