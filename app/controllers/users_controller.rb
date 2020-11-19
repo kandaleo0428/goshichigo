@@ -71,6 +71,14 @@ class UsersController < ApplicationController
       @password = params[:password]
       render('users/login_form')
     end
+
+  end
+
+  def testuserlogin
+    @user = User.find_by(id:4)
+    session[:user_id] = @user.id
+    flash[:notice] = "テストユーザーとしてログインしました"
+    redirect_to('/posts/index')
   end
 
   def logout

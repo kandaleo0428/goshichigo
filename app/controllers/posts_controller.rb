@@ -40,6 +40,11 @@ class PostsController < ApplicationController
     else
     render("posts/new")
     end
+
+    #新規投稿のidを取得して和暦に変更したい
+    @id = Post.find_by(id: params[:id])
+    #@created_at_wareki = Date.parse(Post.@id.created_at.to_s).strftime("%JF")
+
   end
 
   def edit
