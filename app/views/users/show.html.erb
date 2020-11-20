@@ -100,9 +100,9 @@
                <p class="card-title"><%= link_to(post.user.name, "/users/#{post.user.id}") %></p><br>
                <!-- メッセージ　-->
                <p>【詠み人からのメッセージ】</p>　
-               <p><%= post.message %></p>
-               <p>【投稿日時】</p>
-               <p><%= post.created_at %></p>
+               <%= post.message %>
+               <p>【投稿日】</p>
+               <%= post.created_at_wareki %>
           </div>
             <div class="card-footer">
               <p><%=link_to("句の詳細","/posts/#{post.id}") %></p> 

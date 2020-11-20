@@ -38,7 +38,7 @@
   <header class="bg-primary py-5 mb-5">
     <div class="user_index">
       
-      <h1 class="blue"><ruby>投稿詳細画面<rt>とうこうしょうさいがめん</rt></ruby></h1>
+      <h2 class="blue"><ruby>投稿詳細画面<rt>とうこうしょうさいがめん</rt></ruby></h2>
       <p class="blue">【詠み人】<%= link_to(@user.name,"/users/#{@user.id}") %></p>
 　　　<img class="post_photo" src="<%= "/user_images/#{@user.image_name}" %>">
 
@@ -47,13 +47,11 @@
      <h2>&ensp;&ensp;&ensp;<%= @post.content2 %></h2>
      <h2>&ensp;&ensp;&ensp;&ensp;&ensp;<%= @post.content3 %></h2>
 
-　　　<h4>【詠み人からのメッセージ】</h4>
+　　　<h5>【詠み人からのメッセージ】</h5>
 　　　<%= @post.message %>
 
-     <h4>【投稿日】</h4>
-     <%= @post.created_at_wareki %>
-     <br>
-     <br>
+     <h5>【投稿日】<%= @post.created_at_wareki %></h5>
+     
      <br>
 
   <div class="posts-show-item">
@@ -72,7 +70,7 @@
   
   <% end %>
   <% end %>
-  【お気に入りに追加されている数】<%=@likes_count %>
+  <h5>【お気に入りに追加されている数】<%=@likes_count %></h5>
   </div>
 
   <% if @post.user_id == @current_user.id %>

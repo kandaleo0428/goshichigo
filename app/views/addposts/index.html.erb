@@ -37,7 +37,7 @@
   <!-- Header -->
   <header class="bg-primary py-5 mb-5">
     <div class="renku_logo">
-      <h1>連句一覧&ensp;</h1>
+      <h1><ruby>連句一覧<rt>れんくいちらん</rt></ruby>&ensp;</h1>
     </div>
 
  
@@ -56,8 +56,8 @@
       <h2>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<%= addpost.content4 %></h2>
       <h2>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<%= addpost.content5 %></h2>
       <br>
-      <p>&ensp;&ensp;&ensp;&ensp;上の句作者：<%= link_to("#{addpost.original_user}","/users/#{addpost.original_user_id}") %>さん</p>
-      <p>&ensp;&ensp;&ensp;&ensp;下の句作者：<%= link_to("#{addpost.add_user}","/users/#{addpost.add_user_id}") %>さん</p>　<!--修正箇所-->
+      <p>&ensp;&ensp;&ensp;&ensp;<ruby>上の句<rt>かみのく</rt>作者</ruby>：<%= link_to("#{addpost.original_user}","/users/#{addpost.original_user_id}") %>さん</p>
+      <p>&ensp;&ensp;&ensp;&ensp;<ruby>下の句<rt>しものく</rt>作者</ruby>：<%= link_to("#{addpost.add_user}","/users/#{addpost.add_user_id}") %>さん</p>　<!--修正箇所-->
       <br>
     <!-- メッセージがあれば出力される -->
       <% if addpost.addmessage != nil %>
