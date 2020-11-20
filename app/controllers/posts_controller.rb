@@ -4,8 +4,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(created_at: :desc) #新しい投稿から順に並ぶようにするために「(created_at: :desc)」設定している
-    @post = Post.find_by(id: params[:id])
-    @created_at_wareki = Date.parse(Post.@post.created_at.to_s).strftime("%JF")
+    #@post = Post.find_by(created_at: params[:created_at])
+    #@created_at_wareki = Date.parse(@post.to_s).strftime("%JF")
   end
 
   def show
@@ -33,7 +33,8 @@ class PostsController < ApplicationController
       content2: params[:content2],
       content3: params[:content3],
       message: params[:message],
-      user_id: @current_user.id
+      user_id: @current_user.id,
+      created_at_wareki: Date.today.strftime("%JF")
       )
     
     if @post.save
