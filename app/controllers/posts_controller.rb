@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
 
   def index
-    @posts = Post.all.order(created_at: :desc) #新しい投稿から順に並ぶようにするために「(created_at: :desc)」設定している
+    @posts = Post.all.order(created_at: :desc) #新しい投稿が上位に表示される「(created_at: :desc)」設定している
   end
 
   def show
@@ -31,7 +31,8 @@ class PostsController < ApplicationController
       content2: params[:content2],
       content3: params[:content3],
       message: params[:message],
-      user_id: @current_user.id
+      user_id: @current_user.id,
+      created_at_wareki: params[:created_at_wareki]
       )
     
     if @post.save
@@ -40,10 +41,6 @@ class PostsController < ApplicationController
     else
     render("posts/new")
     end
-
-    #新規投稿のidを取得して和暦に変更したい
-    @id = Post.find_by(id: params[:id])
-    #@created_at_wareki = Date.parse(Post.@id.created_at.to_s).strftime("%JF")
 
   end
 

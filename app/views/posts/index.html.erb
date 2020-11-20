@@ -54,8 +54,8 @@
             <p class="card-title"><%= link_to(post.user.name, "/users/#{post.user.id}") %>　さん</p>
             <p>【詠み人からのメッセージ】</p>
             <p><%= post.message %></p>
-            <p>【投稿日時】</p>
-            <p><%= post.created_at %></p>
+            <p>【投稿日】</p>
+            <p><%= post.created_at_wareki %></p>
 
           </div>
             <div class="card-footer">
@@ -65,7 +65,7 @@
       </div>
       <br>
     <% end %>
-    <p><%= @created_at_wareki %></p>
+    
   </header>
   
 

@@ -64,6 +64,11 @@
       <p></p>
       <p>詠み人からのメッセージ（任意）</p>
       <textarea name="message"></textarea><br><br>
+
+      <!-- 投稿日を和暦に変換する -->
+      <% @created_at_wareki = Date.today.strftime("%JF") %>
+      <%= hidden_field_tag :created_at_wareki, @created_at_wareki %>
+
       <input class="btn outline btn-primary" type="submit" value="詠む">
       <% end %>
       <br>
