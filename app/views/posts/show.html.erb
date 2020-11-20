@@ -108,6 +108,10 @@
   <!-- コメントを投稿したユーザーの情報を送信-->
     <%= hidden_field_tag :post_id, @post.id %>
     <%= hidden_field_tag :comment_user_name, @current_user.name %><br>
+  <!-- 投稿日を和暦に変換する -->
+    <% @created_at_wareki = Date.today.strftime("%JF") %>
+    <%= hidden_field_tag :created_at_wareki, @created_at_wareki %>
+
     <input class="btn outline btn-primary" type="submit" value="投稿する">
   <% end %>
  <% end %>
@@ -153,13 +157,13 @@
                    <!-- 氏名 -->
                    <%= link_to "#{comment.comment_user_name}","/users/#{comment.user_id}", class: "btn-white" %> &ensp;さんより<br>
                    <!-- 日時 -->
-                   投稿日時：<%= comment.created_at %><br>
+                   投稿日：<%= comment.created_at_wareki %><br>
 
                      <!-- コメントを投稿したユーザーだけがそのコメントを削除できる機能 -->
                      <% if session[:user_id] == comment.user_id %>
   　                     <%= form_tag("/comments/#{comment.id}/destroy") do %>
   　　                   <%= hidden_field_tag :post_id, @post.id %>
-  　                    <input class="circle" type="submit" value="削除する">
+  　                    <input class="btn outline btn-primary" type="submit" value="削除する">
                      <% end %>
                     </div>
                   

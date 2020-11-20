@@ -8,7 +8,9 @@ class CommentsController < ApplicationController
                            original_content1:params[:original_content1],
                            original_content2:params[:original_content2],
                            original_content3:params[:original_content3],
-                           original_user_id:params[:original_user_id])
+                           original_user_id:params[:original_user_id],
+                           created_at_wareki:params[:created_at_wareki]
+                          )
       if @comment.save
         flash[:notice] = "コメントしました"
         redirect_to("/posts/#{params[:post_id]}")
