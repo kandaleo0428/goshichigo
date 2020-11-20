@@ -3,9 +3,7 @@ class PostsController < ApplicationController
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
 
   def index
-    @posts = Post.all.order(created_at: :desc) #新しい投稿から順に並ぶようにするために「(created_at: :desc)」設定している
-    #@post = Post.find_by(created_at: params[:created_at])
-    #@created_at_wareki = Date.parse(@post.to_s).strftime("%JF")
+    @posts = Post.all.order(created_at: :desc) #新しい投稿が上位に表示される「(created_at: :desc)」設定している
   end
 
   def show
