@@ -63,7 +63,10 @@
     　　　<%= hidden_field_tag :content3, @content3 %>
     　　　<%= hidden_field_tag :user_name, @user_name %>
     　　　<%= hidden_field_tag :user_id, @user_id %>
-
+         
+         <!-- 投稿日を和暦に変換する -->
+         <% @created_at_wareki = Date.today.strftime("%JF") %>
+         <%= hidden_field_tag :created_at_wareki, @created_at_wareki %>
        <br>
 　　　　  <input class="btn outline btn-primary" type="submit" value="詠む">
 　　　　<% end %>

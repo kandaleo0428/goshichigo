@@ -11,7 +11,8 @@ class AddpostsController < ApplicationController
             original_user: params[:user_name],
             original_user_id: params[:user_id],
             add_user: @current_user.name,
-            add_user_id: @current_user.id
+            add_user_id: @current_user.id,
+            created_at_wareki: params[:created_at_wareki]
         )
         if @addpost.save
             flash[:notice] = "連句しました"

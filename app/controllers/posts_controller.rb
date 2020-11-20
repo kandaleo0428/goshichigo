@@ -34,7 +34,7 @@ class PostsController < ApplicationController
       content3: params[:content3],
       message: params[:message],
       user_id: @current_user.id,
-      created_at_wareki: Date.today.strftime("%JF")
+      created_at_wareki: params[:created_at_wareki]
       )
     
     if @post.save
