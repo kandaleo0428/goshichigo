@@ -37,4 +37,5 @@
 ・本番環境  
 〇AWS(EC2,MySQL デプロイ作業中）  
 
-<h2>ポートフォリオ「GO-SHICHI-GO」解説動画リンクはこちら→「https://youtu.be/a6jcOPNNWBM」</h2>
+<h2>ポートフォリオ「GO-SHICHI-GO」解説動画  
+  「https://youtu.be/a6jcOPNNWBM」</h2>
