@@ -28,6 +28,7 @@
 【環境・使用技術】
 ・フロントエンド  
 〇Start Bootstrap  
+〇HTML  
 〇CSS(SCSS)  
 〇JavaScript  
 〇JQuery
