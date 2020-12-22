@@ -1,0 +1,22 @@
+version: 2.1
+orbs:
+  ruby: circleci/ruby@0.1.2 
+
+jobs:
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "28:6b:7d:4f:04:b8:0e:7e:a9:d0:5b:44:ab:7b:ca:eb:64:38:f8:54" #SSHするサーバの秘密鍵を登録後、ハッシュ化されているfingerprintsをコピペする。
+      - run: ssh -p 22 ec2-user@18.178.199.23 "/var/www/goshichigo/deploy.sh"
+
+workflows:
+  version: 2.1
+  deploy:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only: master
