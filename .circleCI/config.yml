@@ -10,7 +10,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "95:16:12:7e:91:2f:86:8b:ec:43:97:53:3a:85:64:16" #SSHするサーバの秘密鍵を登録後、ハッシュ化されているfingerprintsをコピペする。
-      - run: ssh -p 22 ec2-user@18.178.199.23 "/var/www/rails/goshichigo/deploy.sh"
+      - run: ssh -p 22 $SSH_PORT $SSH_USER＠$SSH_HOST "/var/www/rails/goshichigo/deploy.sh"
 
 workflows:
   version: 2.1
