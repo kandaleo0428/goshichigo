@@ -1,2 +1,2 @@
 #!/bin/bash
-cd /var/www/goshichigo/ && git pull $$ bundle install
+cd /var/www/rails/goshichigo && git pull $$ bundle install
