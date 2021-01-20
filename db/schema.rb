@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_11_20_021026) do
 
-  create_table "addposts", force: :cascade do |t|
+  create_table "addposts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content4"
     t.string "content5"
     t.string "addmessage"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_11_20_021026) do
     t.string "created_at_wareki"
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "comment"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
@@ -42,21 +42,21 @@ ActiveRecord::Schema.define(version: 2020_11_20_021026) do
     t.string "created_at_wareki"
   end
 
-  create_table "follows", force: :cascade do |t|
+  create_table "follows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "following_user_id"
     t.integer "followed_user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "likes", force: :cascade do |t|
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "content1"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2020_11_20_021026) do
     t.string "created_at_wareki"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
