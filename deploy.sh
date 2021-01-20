@@ -1,2 +1,2 @@
 #!/bin/bash
-cd /var/www/goshichigo/ && git pull
+cd /var/www/rails/goshichigo && git pull && /home/ec2-user/.rbenv/shims/bundle install
